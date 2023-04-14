@@ -3,5 +3,8 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss',
     '@pinia/nuxt',
-  ]
+  ],
+  dir: {
+    modules: 'modules_not_scanned'
+  },
 })
