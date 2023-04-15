@@ -1,12 +1,16 @@
 <template>
-  <div>
+  <div class="default">
     <slot />
   </div>
 </template>
 
 <script setup lang='ts'>
-console.log('work');
+
 
 </script>
 
-<style lang='scss' scoped></style>
+<style lang='scss' scoped>
+.default {
+  @apply max-w-7xl mx-auto
+}
+</style>

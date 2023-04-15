@@ -10,7 +10,9 @@
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.6.6",
-    "nuxt": "^3.4.0"
+    "nuxt": "^3.4.0",
+    "sass": "^1.62.0",
+    "vite-svg-loader": "^4.0.0"
   },
   "overrides": {
     "vue": "latest"
