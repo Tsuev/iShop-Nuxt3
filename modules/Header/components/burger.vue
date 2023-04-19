@@ -2,7 +2,7 @@
   <div class="burger">
     <burgerSvg />
     <span class="burger__title">
-      Меню
+      Каталог
     </span>
   </div>
 </template>
@@ -13,11 +13,11 @@ import burgerSvg from '../assets/burger.svg'
 
 <style lang='scss' scoped>
 .burger {
-  @apply px-3 py-1 bg-gradient-to-r from-green-600 from-60% to-blue-500;
+  @apply px-3 py-1 bg-gradient-to-r from-cyan-600 from-50% to-blue-500;
   @apply flex items-center rounded cursor-pointer;
 
   &__title {
-    @apply text-white font-bold text-xl ml-3
+    @apply text-white font-bold text-lg ml-3
   }
 }
 </style>

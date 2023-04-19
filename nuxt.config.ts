@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss',
     '@pinia/nuxt',
+    // 'vue-ssr-carousel/nuxt'
   ],
   dir: {
     modules: 'modules_not_scanned'
@@ -20,4 +21,11 @@ export default defineNuxtConfig({
       svgLoader()
     ]
   },
+  app: {
+    head: {
+      title: 'iShopPhone',
+      charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=1',
+    }
+  }
 })

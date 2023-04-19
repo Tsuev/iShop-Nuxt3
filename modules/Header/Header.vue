@@ -2,7 +2,7 @@
   <div class="header">
     <burger />
     <logo />
-    <user />
+    <component :is="true ? user : login" />
   </div>
 </template>
 
@@ -10,6 +10,7 @@
 import burger from './components/burger.vue'
 import logo from './components/logo.vue'
 import user from './components/user.vue'
+import login from './components/login.vue'
 </script>
 
 <style lang='scss' scoped>

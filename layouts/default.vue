@@ -11,6 +11,6 @@
 
 <style lang='scss' scoped>
 .default {
-  @apply max-w-7xl mx-auto
+  @apply max-w-7xl mx-auto px-1
 }
 </style>

@@ -12,7 +12,8 @@
     "@nuxtjs/tailwindcss": "^6.6.6",
     "nuxt": "^3.4.0",
     "sass": "^1.62.0",
-    "vite-svg-loader": "^4.0.0"
+    "vite-svg-loader": "^4.0.0",
+    "vue3-carousel": "^0.3.0"
   },
   "overrides": {
     "vue": "latest"
@@ -20,6 +21,7 @@
   "dependencies": {
     "@pinia/nuxt": "^0.4.8",
     "@vueuse/core": "^9.13.0",
-    "pinia": "^2.0.34"
+    "pinia": "^2.0.34",
+    "vue-ssr-carousel": "^2.1.0"
   }
 }
