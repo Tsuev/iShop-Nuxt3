@@ -4,13 +4,11 @@
   </button>
 </template>
 
-<script setup lang='ts'>
+<script setup lang="ts"></script>
 
-</script>
-
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .button {
-  @apply bg-gradient-to-r from-green-600 from-60% to-blue-500;
+  @apply bg-sky-600 hover:bg-sky-700 transition-all;
   @apply text-white font-bold text-base mx-2 px-2 py-1;
   @apply rounded;
 }

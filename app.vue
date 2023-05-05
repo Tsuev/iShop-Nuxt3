@@ -1,12 +1,9 @@
 <template>
   <NuxtLayout>
-    <Header />
     <NuxtPage />
   </NuxtLayout>
 </template>
 
-<script setup lang='ts'>
-import Header from '~/modules/Header/Header.vue'
-</script>
+<script setup lang="ts"></script>
 
-<style lang='scss' scoped></style>
+<style lang="scss" scoped></style>

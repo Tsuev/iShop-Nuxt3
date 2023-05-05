@@ -11,7 +11,9 @@ export default defineNuxtConfig({
     modules: 'modules_not_scanned'
   },
   css: [
-    '@/assets/scss/main.scss'
+    '@/assets/scss/main.scss',
+    '@/assets/scss/extends.scss',
+    'vue3-carousel/dist/carousel.css'
   ],
   tailwindcss: {
     configPath: './tailwind.config.ts'
@@ -19,7 +21,14 @@ export default defineNuxtConfig({
   vite: {
     plugins: [
       svgLoader()
-    ]
+    ],
+    css: {
+      preprocessorOptions: {
+          sass: {
+              additionalData: '@import "@/assets/scss/extends.scss"',
+          },
+      },
+    },
   },
   app: {
     head: {

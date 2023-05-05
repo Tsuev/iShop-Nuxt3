@@ -5,8 +5,8 @@
   </div>
 </template>
 
-<script setup lang='ts'>
-import Button from '~/components/ui/button.vue'
+<script setup lang="ts">
+import Button from "@/components/ui/Button.vue";
 </script>
 
-<style lang='scss' scoped></style>
+<style lang="scss" scoped></style>

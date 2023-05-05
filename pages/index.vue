@@ -1,44 +1,115 @@
 <template>
   <main class="main">
-    <Carousel />
+    <Carousel :wrapAround="true" :items-to-show="1" :autoplay="50000">
+      <Slide v-for="slide in 3" :key="slide">
+        <div
+          class="carousel__item"
+          :style="{ backgroundImage: `url(${'/fix-smartphone.jpeg'})` }"
+        >
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error,
+          labore.
+        </div>
+      </Slide>
 
-    <section class="main__services">
-      <h2 class="main__services__title">Категории</h2>
-      <div class="main__services__content">
+      <template #addons>
+        <Navigation />
+        <Pagination />
+      </template>
+    </Carousel>
+
+    <section class="main__categories">
+      <h2 class="main__categories__title">Категории</h2>
+      <div class="main__categories__content">
         <content-block>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam atque at hic. Eligendi odit asperiores
-          expedita pariatur, placeat perspiciatis quaerat? Qui blanditiis nostrum facere ipsa corrupti? Ea pariatur vitae
-          fugiat.
+          <NuxtLink to="/smartphones">
+            <div
+              class="block__content"
+              :style="{ backgroundImage: `url(${'/smartphones.png'})` }"
+            >
+              Смартфоны
+            </div>
+          </NuxtLink>
         </content-block>
+
         <content-block>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam atque at hic. Eligendi odit asperiores
-          expedita pariatur, placeat perspiciatis quaerat? Qui blanditiis nostrum facere ipsa corrupti? Ea pariatur vitae
-          fugiat.
+          <NuxtLink to="/services">
+            <div
+              class="block__content"
+              :style="{ backgroundImage: `url(${'/fix-iphone.png'})` }"
+            >
+              Ремонтные сервисы
+            </div>
+          </NuxtLink>
         </content-block>
       </div>
+    </section>
 
+    <section class="main__compilation">
+      <h2 class="main__compilation__title">Лучший выбор</h2>
+      <div class="main__compilation__products">
+        <ProductCard />
+      </div>
     </section>
   </main>
 </template>
 
-<script setup lang='ts'>
-import Carousel from '@/modules/Carousel/Carousel.vue'
-import ContentBlock from '@/components/ui/content-block.vue'
+<script setup lang="ts">
+import { Carousel, Navigation, Pagination, Slide } from "vue3-carousel";
+import ContentBlock from "@/components/ui/content-block.vue";
+import ProductCard from "@/modules/ProductCard/ProductCard.vue";
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .main {
   @apply pt-10;
+  .carousel {
+    &__item {
+      @apply bg-gradient-to-r from-cyan-600 from-50% to-blue-500 h-[300px] w-[100%] rounded-xl mx-1;
+      @apply bg-center bg-no-repeat bg-cover;
+      @apply flex items-end text-2xl font-bold text-white text-left;
+      @apply pl-11 pb-7;
 
-  &__services {
+      -webkit-box-shadow: 0px -89px 27px -10px rgba(34, 60, 80, 0.2) inset;
+      -moz-box-shadow: 0px -89px 27px -10px rgba(34, 60, 80, 0.2) inset;
+      box-shadow: 0px -70px 27px -10px rgba(0, 0, 0, 0.7) inset;
+    }
+  }
+
+  .carousel__pagination-button:hover::after,
+  .carousel__pagination-button--active::after {
+    @apply bg-cyan-600;
+  }
+  h2 {
+    @apply text-2xl font-bold mt-10 mb-5;
+  }
+
+  &__categories {
     @apply mt-10;
 
     &__content {
-      @apply grid grid-cols-2 gap-4
+      @apply grid grid-cols-2 gap-4;
+
+      .block {
+        &__content {
+          @apply bg-center bg-no-repeat bg-cover;
+          @apply px-5 py-4;
+          @apply flex items-end text-2xl font-bold text-white text-left h-full;
+          box-shadow: 0px -50px 27px -15px rgba(0, 0, 0, 0.3) inset;
+          transition-duration: 0.3s;
+          &:hover {
+            box-shadow: 0px -100px 27px -15px rgba(0, 0, 0, 0.3) inset;
+          }
+        }
+      }
+    }
+  }
+
+  &__compilation {
+    &__title {
     }
 
-    &__title {
-      @apply text-xl font-bold mb-3
+    &__products {
+      @apply flex gap-7;
     }
   }
 }

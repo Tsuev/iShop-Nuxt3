@@ -1,21 +1,13 @@
 <template>
-  <div class="block" :class="background">
+  <div class="block">
     <slot />
   </div>
 </template>
 
-<script setup lang='ts'>
-export interface Block {
-  background?: string
-}
+<script setup lang="ts"></script>
 
-const props = withDefaults(defineProps<Block>(), {
-  background: 'bg-gradient-to-r from-green-600 to-blue-500'
-})
-</script>
-
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .block {
-  @apply p-2 rounded-lg shadow-sm
+  @apply rounded-lg shadow-sm overflow-hidden h-[200px];
 }
 </style>

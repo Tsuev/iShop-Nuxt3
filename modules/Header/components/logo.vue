@@ -1,20 +1,20 @@
 <template>
   <NuxtLink to="/" class="logo">
     <logoSvg />
-    <span class="logo__title">iShopPhone</span>
+    <span class="logo__title">iShoPhone</span>
   </NuxtLink>
 </template>
 
-<script setup lang='ts'>
-import logoSvg from '../assets/logo.svg'
+<script setup lang="ts">
+import logoSvg from "../assets/logo.svg";
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .logo {
-  @apply flex flex-col items-center;
+  @apply flex items-end;
 
   &__title {
-    @apply font-bold text-xl
+    @apply font-extrabold text-3xl ml-2;
   }
 }
 </style>
