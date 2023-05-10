@@ -11,17 +11,19 @@
 
 <style lang="scss" scoped>
 .accumulator {
-  @apply text-lg text-white font-bold h-full;
+  @apply text-sm lg:text-lg text-white font-medium h-full;
 
   .battery {
-    @apply rounded w-[35px] h-[20px] p-[2px] relative border-white border-[1px];
+    @apply rounded-sm w-[15px] h-[10px];
+    @apply lg:rounded lg:w-[35px] lg:h-[20px] lg:p-[2px] relative border-white border-[1px];
     &:after {
       content: "";
-      @apply block absolute right-[-16%] bottom-[15%] bg-white h-[10px] w-[1px];
+      @apply right-[-10%] bottom-[15%] h-[5px];
+      @apply block absolute lg:right-[-16%] lg:bottom-[15%] lg:h-[10px] w-[1px] bg-white;
     }
 
     &__state {
-      @apply w-[100%] h-full bg-green-600;
+      @apply w-full h-full bg-green-600;
     }
   }
 }

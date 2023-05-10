@@ -47,7 +47,19 @@
     <section class="main__compilation">
       <h2 class="main__compilation__title">Лучший выбор</h2>
       <div class="main__compilation__products">
-        <ProductCard />
+        <Carousel
+          :wrapAround="true"
+          :items-to-show="3"
+          :breakpoints="compilationPhonesBreakpoints"
+        >
+          <Slide v-for="slide in 10" :key="slide">
+            <ProductCard />
+          </Slide>
+
+          <template #addons>
+            <Navigation />
+          </template>
+        </Carousel>
       </div>
     </section>
   </main>
@@ -57,6 +69,17 @@
 import { Carousel, Navigation, Pagination, Slide } from "vue3-carousel";
 import ContentBlock from "@/components/ui/content-block.vue";
 import ProductCard from "@/modules/ProductCard/ProductCard.vue";
+
+const compilationPhonesBreakpoints = ref({
+  300: {
+    itemsToShow: 2,
+    snapAlign: "center",
+  },
+  1024: {
+    itemsToShow: 3,
+    snapAlign: "center",
+  },
+});
 </script>
 
 <style lang="scss" scoped>
@@ -109,7 +132,7 @@ import ProductCard from "@/modules/ProductCard/ProductCard.vue";
     }
 
     &__products {
-      @apply flex gap-7;
+      // @apply flex gap-7;
     }
   }
 }

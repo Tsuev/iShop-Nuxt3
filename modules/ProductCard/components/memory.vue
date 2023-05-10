@@ -11,6 +11,6 @@ import DataBaseIcon from "../assets/img/database-icon.svg";
 
 <style lang="scss" scoped>
 .memory {
-  @apply text-lg text-white font-bold flex flex-col items-center;
+  @apply text-lg text-white font-medium flex flex-col items-center;
 }
 </style>

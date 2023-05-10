@@ -19,7 +19,6 @@ import login from "./components/login.vue";
   @apply flex justify-center px-1 sticky top-0 z-50;
 
   background: rgba(255, 255, 255, 0.12);
-  border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(7.2px);
   -webkit-backdrop-filter: blur(7.2px);
