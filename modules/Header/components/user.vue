@@ -2,9 +2,11 @@
   <div class="user">
     <avatarSvg />
   </div>
+  <drop-menu />
 </template>
 
 <script setup lang="ts">
+import DropMenu from "@/components/ui/drop-menu.vue";
 import avatarSvg from "../assets/avatar.svg";
 </script>
 

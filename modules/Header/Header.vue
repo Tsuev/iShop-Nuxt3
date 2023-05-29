@@ -3,7 +3,7 @@
     <div class="header__wrapper">
       <logo />
 
-      <component :is="false ? user : login" />
+      <component :is="true ? user : login" />
     </div>
   </div>
 </template>

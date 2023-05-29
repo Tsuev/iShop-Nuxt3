@@ -47,19 +47,13 @@
     <section class="main__compilation">
       <h2 class="main__compilation__title">Лучший выбор</h2>
       <div class="main__compilation__products">
-        <Carousel
-          :wrapAround="true"
-          :items-to-show="3"
-          :breakpoints="compilationPhonesBreakpoints"
-        >
-          <Slide v-for="slide in 10" :key="slide">
-            <ProductCard />
-          </Slide>
-
-          <template #addons>
-            <Navigation />
-          </template>
-        </Carousel>
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
       </div>
     </section>
   </main>
@@ -72,7 +66,7 @@ import ProductCard from "@/modules/ProductCard/ProductCard.vue";
 
 const compilationPhonesBreakpoints = ref({
   300: {
-    itemsToShow: 2,
+    itemsToShow: 2.5,
     snapAlign: "center",
   },
   1024: {
@@ -132,7 +126,7 @@ const compilationPhonesBreakpoints = ref({
     }
 
     &__products {
-      // @apply flex gap-7;
+      @apply flex gap-2 md:gap-5 overflow-x-auto flex-nowrap sm:overflow-x-hidden sm:flex-wrap;
     }
   }
 }

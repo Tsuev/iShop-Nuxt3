@@ -8,15 +8,11 @@
       <div class="product__content">
         <div class="product__title">iPhone 14 Pro Max</div>
         <div class="product__characteristics">
-          <battery />
-          <memory />
-          <color />
+          <Characteristic title="Память" value="128GB" />
+          <Characteristic title="Цвет" value="Фиолетовый" />
+          <Characteristic title="Батарея" value="100%" />
         </div>
-        <div class="product__company">
-          <div class="company__logo">
-            <img src="./assets/img/test-company.png" alt="" />
-          </div>
-        </div>
+        <div class="product__company"></div>
         <div class="product__price">100 000 ₽</div>
         <!-- <div class="product__brand">
           <img src="@/assets/img/apple-logo.png" alt="" />
@@ -27,15 +23,18 @@
 </template>
 
 <script setup lang="ts">
-import Battery from "./components/battery.vue";
-import Memory from "./components/memory.vue";
-import Color from "./components/color.vue";
+import Characteristic from "./components/characteristic.vue";
+
+// import Battery from "./components/battery.vue";
+// import Memory from "./components/memory.vue";
+// import Color from "./components/color.vue";
 </script>
 
 <style lang="scss" scoped>
 .product {
-  @apply rounded-lg p-4 relative overflow-hidden flex flex-col w-full;
-  @apply bg-gradient-to-r from-slate-900 to-black;
+  @apply rounded-lg p-3 relative overflow-hidden flex flex-col w-full;
+  @apply bg-gradient-to-r from-slate-900 to-black text-white;
+  @apply min-w-[170px];
   transition-duration: 0.3s;
 
   &:hover {
@@ -48,12 +47,12 @@ import Color from "./components/color.vue";
 
   &__content {
     .product__title {
-      @apply text-sm lg:text-2xl font-medium text-white text-center mb-2;
+      @apply text-sm lg:text-2xl font-medium text-center mb-2;
     }
   }
 
   &__characteristics {
-    @apply flex items-center justify-between mb-7 mt-3;
+    @apply flex flex-col mb-5 mt-3;
   }
 
   &__brand {
@@ -66,8 +65,8 @@ import Color from "./components/color.vue";
   &__price {
     @apply absolute right-0 bottom-0;
     @apply bg-gradient-to-r from-sky-700 to-blue-700;
-    @apply px-2 text-white text-lg font-bold;
-    @apply rounded-tl-lg;
+    @apply px-2 text-lg font-bold;
+    @apply rounded-tl-lg text-sm lg:text-xl;
   }
 
   &__company {

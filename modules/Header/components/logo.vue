@@ -1,7 +1,7 @@
 <template>
   <NuxtLink to="/" class="logo">
     <logoSvg />
-    <span class="logo__title">iShoPhone</span>
+    <span class="logo__title">iShop</span>
   </NuxtLink>
 </template>
 
