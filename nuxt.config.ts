@@ -13,7 +13,8 @@ export default defineNuxtConfig({
   css: [
     '@/assets/scss/main.scss',
     '@/assets/scss/extends.scss',
-    'vue3-carousel/dist/carousel.css'
+    'vue3-carousel/dist/carousel.css',
+    'vue-final-modal/style.css'
   ],
   tailwindcss: {
     configPath: './tailwind.config.ts'
@@ -35,6 +36,7 @@ export default defineNuxtConfig({
       title: 'iShopPhone',
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
-    }
+    },
+    pageTransition: { name: 'page', mode: 'out-in' }
   }
 })

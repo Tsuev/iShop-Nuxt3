@@ -21,7 +21,7 @@
       <h2 class="main__categories__title">Категории</h2>
       <div class="main__categories__content">
         <content-block>
-          <NuxtLink to="/smartphones">
+          <NuxtLink to="/catalog">
             <div
               class="block__content"
               :style="{ backgroundImage: `url(${'/smartphones.png'})` }"
@@ -38,6 +38,28 @@
               :style="{ backgroundImage: `url(${'/fix-iphone.png'})` }"
             >
               Ремонтные сервисы
+            </div>
+          </NuxtLink>
+        </content-block>
+
+        <content-block>
+          <NuxtLink to="/services">
+            <div
+              class="block__content"
+              :style="{ backgroundImage: `url(${'/fix-iphone.png'})` }"
+            >
+              Быстрые продажи
+            </div>
+          </NuxtLink>
+        </content-block>
+
+        <content-block>
+          <NuxtLink to="/services">
+            <div
+              class="block__content"
+              :style="{ backgroundImage: `url(${'/fix-iphone.png'})` }"
+            >
+              IPhone под заказ
             </div>
           </NuxtLink>
         </content-block>
@@ -63,17 +85,6 @@
 import { Carousel, Navigation, Pagination, Slide } from "vue3-carousel";
 import ContentBlock from "@/components/ui/content-block.vue";
 import ProductCard from "@/modules/ProductCard/ProductCard.vue";
-
-const compilationPhonesBreakpoints = ref({
-  300: {
-    itemsToShow: 2.5,
-    snapAlign: "center",
-  },
-  1024: {
-    itemsToShow: 3,
-    snapAlign: "center",
-  },
-});
 </script>
 
 <style lang="scss" scoped>

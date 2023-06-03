@@ -11,6 +11,7 @@
           <Characteristic title="Память" value="128GB" />
           <Characteristic title="Цвет" value="Фиолетовый" />
           <Characteristic title="Батарея" value="100%" />
+          <Characteristic title="Продавец" value="Мансур" />
         </div>
         <div class="product__company"></div>
         <div class="product__price">100 000 ₽</div>

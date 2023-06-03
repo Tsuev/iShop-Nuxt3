@@ -5,14 +5,14 @@
       <Button>Регистрация</Button>
     </div>
     <div class="login__mobile">
-      <user />
+      <User />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import user from "./user.vue";
-import Button from "@/components/ui/Button.vue";
+import User from "./user.vue";
+import Button from "@/components/ui/button.vue";
 </script>
 
 <style lang="scss" scoped>

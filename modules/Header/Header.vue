@@ -3,15 +3,25 @@
     <div class="header__wrapper">
       <logo />
 
-      <component :is="true ? user : login" />
+      <user v-if="true" @click="() => open()" />
+      <login v-else />
     </div>
+
+    <ModalsContainer />
   </div>
 </template>
 
 <script setup lang="ts">
+import { ModalsContainer, useModal } from "vue-final-modal";
+
 import logo from "./components/logo.vue";
 import user from "./components/user.vue";
 import login from "./components/login.vue";
+import MyModal from "@/components/block/my-modal.vue";
+
+const { open, close } = useModal({
+  component: MyModal,
+});
 </script>
 
 <style lang="scss" scoped>

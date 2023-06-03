@@ -2,7 +2,7 @@
   <div class="user">
     <avatarSvg />
   </div>
-  <drop-menu />
+  <!-- <drop-menu /> -->
 </template>
 
 <script setup lang="ts">
