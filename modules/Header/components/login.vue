@@ -1,27 +1,27 @@
 <template>
   <div class="login">
     <div class="login__desktop">
-      <Button>Войти</Button>
-      <Button>Регистрация</Button>
-    </div>
-    <div class="login__mobile">
-      <User />
+      <Button @click="$emit('login', 'login-modal')">Войти</Button>
+      <Button @click="$emit('regist', 'registration-modal')"
+        >Регистрация</Button
+      >
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import User from "./user.vue";
 import Button from "@/components/ui/button.vue";
+
+defineEmits<{
+  (e: "login"): void;
+  (e: "regist"): void;
+}>();
 </script>
 
 <style lang="scss" scoped>
 .login {
   &__desktop {
-    @apply hidden md:block;
-  }
-  &__mobile {
-    @apply block md:hidden;
+    @apply flex gap-1;
   }
 }
 </style>

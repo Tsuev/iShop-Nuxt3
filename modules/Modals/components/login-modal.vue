@@ -1,15 +1,34 @@
+<template>
+  <div class="login">
+    <h2 class="login__title">Войти</h2>
+    <Input
+      label=""
+      placeholder="Логин"
+      type="text"
+      :required="true"
+      v-model="foo"
+    />
+    <Input
+      label=""
+      placeholder="Пароль"
+      type="password"
+      :required="true"
+      v-model="foo"
+    />
+    <Button> Войти </Button>
+  </div>
+</template>
+
 <script setup lang="ts">
-import { VueFinalModal } from "vue-final-modal";
+import Input from "~/components/ui/input.vue";
+import Button from "@/components/ui/button.vue";
+const foo = ref("");
 </script>
 
-<template>
-  <VueFinalModal
-    :overlay-transition="'vfm-fade'"
-    :content-transition="'vfm-fade'"
-    class="flex justify-center items-center"
-    content-class="flex flex-col p-4 bg-white dark:bg-black rounded border border-gray-100 dark:border-gray-800"
-  >
-    <h1>Login</h1>
-    <slot />
-  </VueFinalModal>
-</template>
+<style lang="scss" scoped>
+.login {
+  &__title {
+    @apply text-center text-2xl font-bold mb-8;
+  }
+}
+</style>
