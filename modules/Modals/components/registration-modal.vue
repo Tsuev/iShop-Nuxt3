@@ -40,6 +40,7 @@
       :required="false"
       v-model="foo"
     />
+    <Toggle label="Я продавец" />
     <Button> Зарегистрироваться </Button>
   </div>
 </template>
@@ -47,6 +48,7 @@
 <script setup lang="ts">
 import Input from "~/components/ui/input.vue";
 import Button from "@/components/ui/button.vue";
+import Toggle from "@/components/ui/toggle.vue";
 const foo = ref("");
 </script>
 
