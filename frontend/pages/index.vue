@@ -6,8 +6,8 @@
           class="carousel__item"
           :style="{ backgroundImage: `url(${'/fix-smartphone.jpeg'})` }"
         >
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error,
-          labore.
+          Этот текст написан для того, чтобы заполнить пустое пространство на
+          слайде.
         </div>
       </Slide>
 

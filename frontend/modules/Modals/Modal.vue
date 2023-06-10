@@ -17,7 +17,7 @@ const { modalType } = defineProps<{
   modalType?: string;
 }>();
 
-const dynamicComponent: Ref<Component | null> = ref(null);
+const dynamicComponent: Ref<Component | null> = shallowRef(null);
 dynamicComponent.value = defineAsyncComponent(
   () => import(`./components/${modalType}.vue`)
 );

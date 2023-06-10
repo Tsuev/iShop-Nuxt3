@@ -35,7 +35,7 @@
     </div>
     <Input
       label=""
-      placeholder="Адрес для доставки"
+      placeholder="Адрес для доставки/самовывоза"
       type="email"
       :required="false"
       v-model="foo"

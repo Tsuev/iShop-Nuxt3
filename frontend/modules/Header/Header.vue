@@ -3,8 +3,13 @@
     <div class="header__wrapper">
       <logo />
 
-      <user v-if="false" />
-      <login @login="openModal" @regist="openModal" v-else />
+      <div class="header__desktop">
+        <user v-if="false" />
+        <login @login="openModal" @regist="openModal" v-else />
+      </div>
+      <div class="header__mobile">
+        <burger class="hidden" />
+      </div>
     </div>
     <Teleport to="body">
       <Transition>
@@ -23,6 +28,7 @@ import LoginModal from "@/modules/Modals/Modal.vue";
 import logo from "./components/logo.vue";
 import user from "./components/user.vue";
 import login from "./components/login.vue";
+import burger from "./assets/burger.svg";
 
 const modalState = ref(false);
 const modalType = ref("");
@@ -45,6 +51,13 @@ const openModal = (type: any): void => {
 
   &__wrapper {
     @apply py-2 flex justify-between items-center max-w-7xl w-full;
+
+    .header__desktop {
+      @apply hidden lg:block;
+    }
+    .header__mobile {
+      @apply block lg:hidden;
+    }
   }
 }
 </style>
