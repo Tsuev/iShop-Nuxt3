@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <header class="header">
     <div class="header__wrapper">
       <logo />
       <Navigation />
@@ -10,7 +10,12 @@
       </div>
 
       <div class="header__mobile">
-        <burger class="hidden" />
+        <burger @click="openSidebar" />
+        <Teleport to="body">
+          <Transition>
+            <Sidebar v-if="sidebarState" />
+          </Transition>
+        </Teleport>
       </div>
     </div>
     <Teleport to="body">
@@ -22,7 +27,7 @@
         />
       </Transition>
     </Teleport>
-  </div>
+  </header>
 </template>
 
 <script setup lang="ts">
@@ -32,14 +37,24 @@ import user from "./components/user.vue";
 import login from "./components/login.vue";
 import burger from "./assets/burger.svg";
 import Navigation from "./components/nav.vue";
+import Sidebar from "@/components/modules/Sidebar/Sidebar.vue";
 
 const modalState = ref(false);
 const modalType = ref("");
-const closeModal = () => (modalState.value = false);
+const sidebarState = ref(false);
+
+const openSidebar = () => (sidebarState.value = true);
+const closeSidebar = () => (sidebarState.value = false);
+
+const closeModal = () => {
+  modalState.value = false;
+  document.body.style.overflowY = "visible";
+};
 
 const openModal = (type: any): void => {
   modalState.value = true;
   modalType.value = type;
+  document.body.style.overflowY = "hidden";
 };
 </script>
 
