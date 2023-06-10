@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import LoginModal from "@/modules/Modals/Modal.vue";
+import LoginModal from "@/components/modules/Modals/Modal.vue";
 import logo from "./components/logo.vue";
 import user from "./components/user.vue";
 import login from "./components/login.vue";

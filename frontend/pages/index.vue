@@ -84,7 +84,7 @@
 <script setup lang="ts">
 import { Carousel, Navigation, Pagination, Slide } from "vue3-carousel";
 import ContentBlock from "@/components/ui/content-block.vue";
-import ProductCard from "@/modules/ProductCard/ProductCard.vue";
+import ProductCard from "@/components/modules/ProductCard/ProductCard.vue";
 </script>
 
 <style lang="scss" scoped>

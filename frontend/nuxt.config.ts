@@ -7,9 +7,6 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     // 'vue-ssr-carousel/nuxt'
   ],
-  dir: {
-    modules: 'modules_not_scanned'
-  },
   css: [
     '@/assets/scss/main.scss',
     '@/assets/scss/extends.scss',

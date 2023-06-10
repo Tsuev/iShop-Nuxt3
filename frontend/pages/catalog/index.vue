@@ -25,7 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import ProductCard from "@/modules/ProductCard/ProductCard.vue";
+import ProductCard from "@/components/modules/ProductCard/ProductCard.vue";
 </script>
 
 <style lang="scss" scoped>
