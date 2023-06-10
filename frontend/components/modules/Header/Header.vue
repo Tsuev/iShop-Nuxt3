@@ -13,7 +13,7 @@
         <burger @click="openSidebar" />
         <Teleport to="body">
           <Transition>
-            <Sidebar v-if="sidebarState" />
+            <Sidebar @close="closeSidebar" :isOpen="sidebarState" />
           </Transition>
         </Teleport>
       </div>
