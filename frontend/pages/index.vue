@@ -89,7 +89,7 @@ import ProductCard from "@/modules/ProductCard/ProductCard.vue";
 
 <style lang="scss" scoped>
 .main {
-  @apply pt-10;
+  @apply pt-5;
   .carousel {
     &__item {
       @apply bg-gradient-to-r from-cyan-600 from-50% to-blue-500 h-[300px] w-[100%] rounded-xl mx-1;

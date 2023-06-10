@@ -30,7 +30,7 @@ import ProductCard from "@/modules/ProductCard/ProductCard.vue";
 
 <style lang="scss" scoped>
 .catalog {
-  @apply grid grid-cols-12 gap-4 pt-10;
+  @apply grid grid-cols-12 gap-4 pt-5;
 
   &__filter {
     @apply col-span-2;

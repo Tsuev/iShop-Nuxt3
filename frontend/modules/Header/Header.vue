@@ -2,11 +2,13 @@
   <div class="header">
     <div class="header__wrapper">
       <logo />
+      <Navigation />
 
       <div class="header__desktop">
         <user v-if="false" />
         <login @login="openModal" @regist="openModal" v-else />
       </div>
+
       <div class="header__mobile">
         <burger class="hidden" />
       </div>
@@ -29,6 +31,7 @@ import logo from "./components/logo.vue";
 import user from "./components/user.vue";
 import login from "./components/login.vue";
 import burger from "./assets/burger.svg";
+import Navigation from "./components/nav.vue";
 
 const modalState = ref(false);
 const modalType = ref("");
