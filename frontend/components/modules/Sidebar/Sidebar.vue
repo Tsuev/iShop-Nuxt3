@@ -3,6 +3,7 @@
     <div class="sidebar__header">
       <CloseIcon @click="$emit('close', false)" />
     </div>
+    <div class="sidebar__content"></div>
   </div>
 </template>
 
