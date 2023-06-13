@@ -15,11 +15,11 @@
 
 <script setup lang="ts">
 export interface Input {
-  label: string;
-  placeholder: string;
+  label?: string;
+  placeholder?: string;
   modelValue: string;
-  type: string;
-  required: boolean;
+  type?: string;
+  required?: boolean;
 }
 
 withDefaults(defineProps<Input>(), {
