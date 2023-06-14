@@ -14,7 +14,7 @@ import logoSvg from "../assets/logo.svg";
   @apply flex items-end;
 
   &__title {
-    @apply font-extrabold text-3xl ml-2;
+    @apply font-extrabold text-2xl ml-2;
   }
 }
 </style>

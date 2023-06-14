@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import CloseIcon from "./assets/img/close.svg";
+import CloseIcon from "@/assets/img/icons/close.svg";
 
 const { modalType } = defineProps<{
   modalType?: string;
@@ -35,7 +35,7 @@ defineEmits<{
     .modal__header {
       @apply w-full;
       svg {
-        margin-left: auto;
+        @apply ml-auto;
       }
     }
   }

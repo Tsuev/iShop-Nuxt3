@@ -1,5 +1,5 @@
 <template>
-  <div class="user">
+  <div @click="$router.push('/lk')" class="user">
     <avatarSvg />
   </div>
   <!-- <drop-menu /> -->
@@ -13,6 +13,6 @@ import avatarSvg from "../assets/avatar.svg";
 <style lang="scss" scoped>
 .user {
   @apply rounded-full bg-gradient-to-r from-sky-600 from-60% to-blue-500;
-  @apply h-[50px] w-[50px] flex justify-center items-end cursor-pointer;
+  @apply h-[40px] w-[40px] flex justify-center items-end cursor-pointer;
 }
 </style>

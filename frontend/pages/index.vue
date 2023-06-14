@@ -84,12 +84,25 @@
 <script setup lang="ts">
 import { Carousel, Navigation, Pagination, Slide } from "vue3-carousel";
 import ContentBlock from "@/components/ui/content-block.vue";
-import ProductCard from "@/modules/ProductCard/ProductCard.vue";
+import ProductCard from "@/components/modules/ProductCard/ProductCard.vue";
 </script>
+
+<style lang="scss">
+.carousel__prev,
+.carousel__next {
+  @apply bg-white rounded-full shadow-lg border border-black;
+}
+.carousel__prev {
+  @apply left-[-20px];
+}
+.carousel__next {
+  @apply right-[-20px];
+}
+</style>
 
 <style lang="scss" scoped>
 .main {
-  @apply pt-10;
+  @apply pt-5;
   .carousel {
     &__item {
       @apply bg-gradient-to-r from-cyan-600 from-50% to-blue-500 h-[300px] w-[100%] rounded-xl mx-1;
@@ -107,6 +120,7 @@ import ProductCard from "@/modules/ProductCard/ProductCard.vue";
   .carousel__pagination-button--active::after {
     @apply bg-cyan-600;
   }
+
   h2 {
     @apply text-2xl font-bold mt-10 mb-5;
   }
