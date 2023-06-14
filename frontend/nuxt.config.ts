@@ -8,7 +8,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss',
     '@pinia/nuxt',
-    // 'vue-ssr-carousel/nuxt'
+    'nuxt-icon'
   ],
   css: [
     '@/assets/scss/main.scss',

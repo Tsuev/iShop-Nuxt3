@@ -3,13 +3,15 @@
     <div class="sidebar__header">
       <CloseIcon @click="$emit('close', false)" />
     </div>
-    <div class="sidebar__content"></div>
+    <div class="sidebar__content">
+      <Login />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import CloseIcon from "@/assets/img/icons/close.svg";
-
+import Login from "~/components/blocks/login.vue";
 withDefaults(defineProps<{ isOpen: boolean }>(), {
   isOpen: false,
 });

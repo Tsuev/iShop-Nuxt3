@@ -20,5 +20,8 @@ const props = withDefaults(defineProps<Props>(), {
 <style lang="scss" scoped>
 .characteristic {
   @apply w-full flex justify-between text-gray-400 text-xs sm:text-base;
+  &__value {
+    @apply font-medium text-white;
+  }
 }
 </style>
