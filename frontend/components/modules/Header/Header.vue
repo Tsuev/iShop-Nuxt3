@@ -38,6 +38,11 @@ import login from "@/components/blocks/login.vue";
 import burger from "./assets/burger.svg";
 import Navigation from "./components/nav.vue";
 import Sidebar from "@/components/modules/Sidebar/Sidebar.vue";
+import { getUsers } from "./api";
+
+const foo = ref(getUsers());
+
+console.log(foo.value);
 
 const modalState = ref(false);
 const modalType = ref("");
