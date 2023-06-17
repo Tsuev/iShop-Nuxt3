@@ -9,8 +9,9 @@
         <div class="product__title">iPhone 14 Pro Max</div>
         <div class="product__characteristics">
           <Characteristic title="Память" value="128GB" />
-          <Characteristic title="Цвет" value="Фиолетовый" />
           <Characteristic title="Батарея" value="100%" />
+          <Characteristic title="Состояние" value="Отличное" />
+          <Characteristic title="Цвет" value="Фиолетовый" />
           <Characteristic title="Продавец" value="Мансур" />
         </div>
         <div class="product__company"></div>

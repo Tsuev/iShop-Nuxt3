@@ -73,9 +73,6 @@
         <ProductCard />
         <ProductCard />
         <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
       </div>
     </section>
   </main>
@@ -151,7 +148,7 @@ import ProductCard from "@/components/modules/ProductCard/ProductCard.vue";
     }
 
     &__products {
-      @apply flex gap-2 md:gap-5 overflow-x-auto flex-nowrap sm:overflow-x-hidden sm:flex-wrap;
+      @apply grid grid-cols-2 lg:grid-cols-5 gap-2;
     }
   }
 }
