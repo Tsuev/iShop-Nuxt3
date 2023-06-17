@@ -1,6 +1,6 @@
 <template>
   <div @click.self="$emit('close', false)" class="modal">
-    <div class="modal__content">
+    <div class="modal__content" :class="{ modal__fullscreen: fullscreen }">
       <div class="modal__header">
         <CloseIcon @click="$emit('close', false)" />
       </div>
@@ -14,7 +14,8 @@
 import CloseIcon from "@/assets/img/icons/close.svg";
 
 const { modalType } = defineProps<{
-  modalType?: string;
+  modalType: string;
+  fullscreen?: boolean;
 }>();
 
 const dynamicComponent: Ref<Component | null> = shallowRef(null);
@@ -38,6 +39,9 @@ defineEmits<{
         @apply ml-auto;
       }
     }
+  }
+  .modal__fullscreen {
+    @apply w-screen h-screen;
   }
 }
 </style>
