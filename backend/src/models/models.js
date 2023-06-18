@@ -7,7 +7,7 @@ const User = sequelize.define('user', {
     name: {type: DataTypes.STRING},
     phone: {type: DataTypes.STRING, unique: true},
     password: {type: DataTypes.STRING},
-    role: {type: DataTypes.STRING},
+    role: {type: DataTypes.STRING, defaultValue: 'USER'},
     isAccepted: {type: DataTypes.BOOLEAN, defaultValue: false}
 });
 
@@ -94,4 +94,4 @@ export default {
     BasketItem,
     Device,
     Rating
-}
+};

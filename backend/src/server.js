@@ -6,6 +6,7 @@ import sequelize from "./db.js";
 import models from "./models/models.js";
 import cors from "cors";
 import userRouter from "./routers/UserRouter.js";
+import errorHandler from "./middleware/ErrorHandlingMiddlware.js";
 
 
 const PORT = process.env.PORT || 5000;
@@ -14,6 +15,8 @@ app.use(cors());
 app.use(express.json());
 app.use(userRouter)
 
+
+app.use(errorHandler);
 
 const start = async () => {
     try {
