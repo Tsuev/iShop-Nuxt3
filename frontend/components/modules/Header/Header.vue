@@ -5,7 +5,7 @@
       <Navigation />
 
       <div class="header__desktop">
-        <user v-if="true" />
+        <user v-if="false" />
         <login @login="openModal" @regist="openModal" v-else />
       </div>
 
