@@ -21,7 +21,12 @@
           </Button>
         </div>
         <div class="catalog__items">
-          <ProductCard v-for="item in 5" />
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
         </div>
       </div>
     </div>

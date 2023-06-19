@@ -30,7 +30,7 @@ defineEmits<{
 
 <style lang="scss" scoped>
 .modal {
-  @apply fixed w-full h-full bg-black bg-opacity-40 z-50 flex justify-center items-center;
+  @apply fixed w-full h-full bg-black bg-opacity-40 z-50 flex justify-center items-center top-0;
   .modal__content {
     @apply bg-white rounded-md p-3;
     .modal__header {

@@ -21,6 +21,7 @@ withDefaults(defineProps<buttonType>(), {
   @apply transition-all w-full;
   @apply text-white font-bold text-base px-2 py-1;
   @apply rounded;
+  @apply flex justify-center items-center gap-1;
 }
 
 .default {
