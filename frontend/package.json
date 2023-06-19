@@ -10,7 +10,8 @@
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.6.6",
-    "nuxt": "^3.5.2",
+    "nuxt": "^3.5.3",
+    "nuxt-icon": "^0.4.1",
     "sass": "^1.62.0",
     "vite-svg-loader": "^4.0.0",
     "vue3-carousel": "^0.3.0"
