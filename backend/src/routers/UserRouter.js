@@ -8,7 +8,7 @@ const router = Router();
 router.post('/registration', registration);
 router.post('/login', login);
 router.post('/auth', authMiddlware, check);
-router.get('/test', checkRoleMiddleware('ADMIN'), test);
+router.get('/test', checkRoleMiddleware('USER'), test);
 
 
 export default router;
