@@ -3,7 +3,14 @@
     <div class="header__wrapper">
       <logo />
       <Navigation />
-
+      <!-- <Searchbar /> -->
+      <div class="logo__title">
+        <div class="title">iShop</div>
+        <span class="subtitle flex">
+          Все смартфоны iPhone ЧР
+          <!-- <img src="./assets/chechen.png" alt="" /> -->
+        </span>
+      </div>
       <div class="header__desktop">
         <user v-if="false" />
         <login @login="openModal" @regist="openModal" v-else />
@@ -38,11 +45,14 @@ import login from "@/components/blocks/login.vue";
 import burger from "./assets/burger.svg";
 import Navigation from "./components/nav.vue";
 import Sidebar from "@/components/modules/Sidebar/Sidebar.vue";
-import { getUsers } from "./api";
+import Searchbar from "./components/searchbar.vue";
 
-const foo = ref(getUsers());
+import {
+  fetchAuthorization,
+  fetchRegistration,
+} from "../../../sevices/authorization";
 
-console.log(foo.value);
+fetchRegistration();
 
 const modalState = ref(false);
 const modalType = ref("");
@@ -65,7 +75,7 @@ const openModal = (type: any): void => {
 
 <style lang="scss" scoped>
 .header {
-  @apply flex justify-center px-1 sticky top-0 z-40;
+  @apply flex justify-center px-2 lg:px-1 sticky top-0 z-40;
 
   background: rgba(255, 255, 255, 0.12);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -73,8 +83,16 @@ const openModal = (type: any): void => {
   -webkit-backdrop-filter: blur(7.2px);
 
   &__wrapper {
-    @apply py-2 flex justify-between items-center max-w-7xl w-full;
-
+    @apply py-2 flex justify-between items-center max-w-7xl w-full gap-1;
+    .logo__title {
+      @apply block lg:hidden text-center;
+      .title {
+        @apply text-xl font-bold;
+      }
+      .subtitle {
+        @apply text-sm;
+      }
+    }
     .header__desktop {
       @apply hidden lg:block;
     }
