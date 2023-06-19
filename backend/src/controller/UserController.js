@@ -40,6 +40,10 @@ export const registration = async (req, res, next) => {
 export const login = async (req, res, next) => {
     const { phone, password } = req.body;
 
+    if(!phone || !password ) {
+        return next(ApiError.internal("Некорректные данные"));
+    }
+ 
     const user = await User.findOne({ where: { phone } });
 
     if (!user) {
