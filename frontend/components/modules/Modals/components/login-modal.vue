@@ -22,7 +22,8 @@
 <script setup lang="ts">
 import Input from "~/components/ui/input.vue";
 import Button from "@/components/ui/button.vue";
-const foo = ref("");
+
+const foo = ref();
 </script>
 
 <style lang="scss" scoped>

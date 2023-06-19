@@ -24,6 +24,7 @@
         type="text"
         :required="true"
         v-model="foo"
+        v-mask="'### ### ###'"
       />
       <Input
         label=""

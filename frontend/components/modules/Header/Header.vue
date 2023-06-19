@@ -47,13 +47,6 @@ import Navigation from "./components/nav.vue";
 import Sidebar from "@/components/modules/Sidebar/Sidebar.vue";
 import Searchbar from "./components/searchbar.vue";
 
-import {
-  fetchAuthorization,
-  fetchRegistration,
-} from "../../../sevices/authorization";
-
-fetchRegistration();
-
 const modalState = ref(false);
 const modalType = ref("");
 const sidebarState = ref(false);
