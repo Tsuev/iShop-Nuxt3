@@ -7,23 +7,23 @@
         placeholder="Имя"
         type="text"
         :required="true"
-        v-model="foo"
+        v-model="user.name"
       />
       <Input
         label=""
-        placeholder="Фамилия"
-        type="text"
+        placeholder="Пароль"
+        type="password"
         :required="true"
-        v-model="foo"
+        v-model="user.password"
       />
     </div>
-    <div class="login__block">
+    <!-- <div class="login__block">
       <Input
         label=""
         placeholder="Номер для связи"
         type="text"
         :required="true"
-        v-model="foo"
+        v-model="user.phone"
         v-mask="'### ### ###'"
       />
       <Input
@@ -31,18 +31,18 @@
         placeholder="Почта (*необезательно)"
         type="email"
         :required="false"
-        v-model="foo"
+        v-model="user.name"
       />
-    </div>
+    </div> -->
     <Input
       label=""
       placeholder="Адрес для доставки/самовывоза"
       type="email"
       :required="false"
-      v-model="foo"
+      v-model="user.name"
     />
-    <Toggle label="Я продавец" />
-    <Button> Зарегистрироваться </Button>
+    <Toggle v-model="foo" label="Я продавец" />
+    <Button @click="store.registration"> Зарегистрироваться </Button>
   </div>
 </template>
 
@@ -50,6 +50,11 @@
 import Input from "~/components/ui/input.vue";
 import Button from "@/components/ui/button.vue";
 import Toggle from "@/components/ui/toggle.vue";
+import { useAuthorizationStore } from "@/store/authorizationStore";
+import { storeToRefs } from "pinia";
+
+const store = useAuthorizationStore();
+const { user } = storeToRefs(store);
 const foo = ref("");
 </script>
 

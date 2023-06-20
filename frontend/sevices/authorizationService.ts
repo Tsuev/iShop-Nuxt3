@@ -1,13 +1,13 @@
 import axios from '@/axios.global'
 import jwt from "jwt-decode";
-
 import { AuthorizationType } from '@/types/AuthorizationTypes';
 
-async function fetchRegistration ({ phone, password, name }: AuthorizationType): Promise<AuthorizationType> {
+async function fetchRegistration ({ phone, password, name, role }: AuthorizationType): Promise<AuthorizationType> {
   const { data: { token } } = await axios.post('/registration', {
     phone,
     password,
-    name
+    name,
+    role
   })
   
   return jwt(token)

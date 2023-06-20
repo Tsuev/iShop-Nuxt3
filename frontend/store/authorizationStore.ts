@@ -6,7 +6,8 @@ const useAuthorizationStore = defineStore('authorization', () => {
     const user: Ref<AuthorizationType> = ref({
       name: '',
       password: '',
-      phone: ''
+      phone: '',
+      role: 'USER'
     })
 
     async function registration (): Promise<AuthorizationType> {
