@@ -30,6 +30,7 @@
     "v-mask": "^2.3.0",
     "vue-final-modal": "^4.4.2",
     "vue-query": "^1.26.0",
-    "vue-ssr-carousel": "^2.1.0"
+    "vue-ssr-carousel": "^2.1.0",
+    "vue-the-mask": "^0.11.1"
   }
 }

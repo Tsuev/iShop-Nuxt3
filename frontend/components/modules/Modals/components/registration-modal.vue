@@ -17,14 +17,14 @@
         v-model="user.password"
       />
     </div>
-    <!-- <div class="login__block">
+    <div class="login__block">
       <Input
         label=""
         placeholder="Номер для связи"
         type="text"
         :required="true"
         v-model="user.phone"
-        v-mask="'### ### ###'"
+        v-mask="'+7 (###) ###-##-##'"
       />
       <Input
         label=""
@@ -33,7 +33,7 @@
         :required="false"
         v-model="user.name"
       />
-    </div> -->
+    </div>
     <Input
       label=""
       placeholder="Адрес для доставки/самовывоза"
@@ -41,7 +41,7 @@
       :required="false"
       v-model="user.name"
     />
-    <Toggle v-model="foo" label="Я продавец" />
+    <Toggle v-model="user.role" label="Я продавец" class="my-2" />
     <Button @click="store.registration"> Зарегистрироваться </Button>
   </div>
 </template>
@@ -55,7 +55,6 @@ import { storeToRefs } from "pinia";
 
 const store = useAuthorizationStore();
 const { user } = storeToRefs(store);
-const foo = ref("");
 </script>
 
 <style lang="scss" scoped>
