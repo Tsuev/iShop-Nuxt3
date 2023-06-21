@@ -41,7 +41,7 @@
       :required="false"
       v-model="user.name"
     />
-    <Toggle v-model="user.role" label="Я продавец" class="my-2" />
+    <Toggle v-model="role" label="Я продавец" class="my-2" />
     <Button @click="store.registration"> Зарегистрироваться </Button>
   </div>
 </template>
@@ -55,6 +55,11 @@ import { storeToRefs } from "pinia";
 
 const store = useAuthorizationStore();
 const { user } = storeToRefs(store);
+
+const role = ref(false);
+watch(role, (val) =>
+  val ? (user.value.role = "SELLER") : (user.value.role = "USER")
+);
 </script>
 
 <style lang="scss" scoped>

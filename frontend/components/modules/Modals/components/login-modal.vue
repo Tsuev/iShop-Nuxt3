@@ -3,27 +3,31 @@
     <h2 class="login__title">Войти</h2>
     <Input
       label=""
-      placeholder="Логин"
+      placeholder="Номер телефона"
       type="text"
       :required="true"
-      v-model="foo"
+      v-model="user.phone"
+      v-mask="'+7 (###) ###-##-##'"
     />
     <Input
       label=""
       placeholder="Пароль"
       type="password"
       :required="true"
-      v-model="foo"
+      v-model="user.password"
     />
-    <Button> Войти </Button>
+    <Button @click="store.login"> Войти </Button>
   </div>
 </template>
 
 <script setup lang="ts">
 import Input from "~/components/ui/input.vue";
 import Button from "@/components/ui/button.vue";
+import { useAuthorizationStore } from "~/store/authorizationStore";
+import { storeToRefs } from "pinia";
 
-const foo = ref();
+const store = useAuthorizationStore();
+const { user } = storeToRefs(store);
 </script>
 
 <style lang="scss" scoped>

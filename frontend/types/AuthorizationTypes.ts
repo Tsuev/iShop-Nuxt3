@@ -1,10 +1,16 @@
 interface AuthorizationType {
-  name: string,
-  password: string,
-  phone: string,
-  role: 'USER' | 'SELLER' | 'ADMIN'
+  name: string
+  password: string
+  phone: string
+  role: string
+}
+
+interface LoginType {
+  phone: string
+  password: string
 }
 
 export {
-  AuthorizationType
+  AuthorizationType,
+  LoginType
 }

@@ -12,7 +12,7 @@
         </span>
       </div>
       <div class="header__desktop">
-        <user v-if="false" />
+        <user v-if="store.isAuth" />
         <login @login="openModal" @regist="openModal" v-else />
       </div>
 
@@ -46,13 +46,19 @@ import burger from "./assets/burger.svg";
 import Navigation from "./components/nav.vue";
 import Sidebar from "@/components/modules/Sidebar/Sidebar.vue";
 import Searchbar from "./components/searchbar.vue";
+import { useAuthorizationStore } from "~/store/authorizationStore";
 
+const store = useAuthorizationStore();
 const modalState = ref(false);
 const modalType = ref("");
 const sidebarState = ref(false);
 
 const openSidebar = () => (sidebarState.value = true);
 const closeSidebar = () => (sidebarState.value = false);
+
+onMounted(() => {
+  store.initAuthorization();
+});
 
 const closeModal = () => {
   modalState.value = false;
