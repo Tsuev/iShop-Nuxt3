@@ -16,7 +16,6 @@ async function fetchRegistration ({ phone, password, name, role }: User): Promis
   } catch (error) {
     return error as AxiosError
   }
-
 }
 
 async function fetchLogin ({ phone, password }: LoginType): Promise<AuthorizationType> {

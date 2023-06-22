@@ -1,9 +1,10 @@
 import { defineStore } from 'pinia'
-import { AuthorizationType } from '~/types/AuthorizationTypes'
+import { AuthorizationType, User } from '~/types/AuthorizationTypes'
 import { fetchRegistration, fetchLogin } from '~/sevices/authorizationService'
+import { isAxiosError } from 'axios'
 
 const useAuthorizationStore = defineStore('authorization', () => {
-    const user: Ref<AuthorizationType> = ref({
+    const user: Ref<User> = ref({
       name: '',
       password: '',
       phone: '',
@@ -13,7 +14,10 @@ const useAuthorizationStore = defineStore('authorization', () => {
 
     async function registration (): Promise<AuthorizationType> {
       const response = await fetchRegistration(user.value)
-      user.value = response
+      if(!isAxiosError(response)) {
+        user.value = response
+        localStorage.setItem('user', JSON.stringify(response))
+      }
       localStorage.setItem('user', JSON.stringify(response))
       isAuth.value = true
       
@@ -22,8 +26,10 @@ const useAuthorizationStore = defineStore('authorization', () => {
 
     async function login (): Promise<AuthorizationType> {
       const response = await fetchLogin({ phone: user.value.phone, password: user.value.password })
-      user.value = response
-      localStorage.setItem('user', JSON.stringify(response))
+      if(!isAxiosError(response)) {
+        user.value = response
+        localStorage.setItem('user', JSON.stringify(response))
+      }
       isAuth.value = true
 
       return response

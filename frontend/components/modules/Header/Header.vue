@@ -12,8 +12,8 @@
         </span>
       </div>
       <div class="header__desktop">
-        <user v-if="store.isAuth" />
-        <login @login="openModal" @regist="openModal" v-else />
+        <user v-if="authorizationStore.isAuth" />
+        <login v-else />
       </div>
 
       <div class="header__mobile">
@@ -27,18 +27,14 @@
     </div>
     <Teleport to="body">
       <Transition>
-        <LoginModal
-          v-if="modalState"
-          @close="closeModal"
-          :modalType="modalType"
-        />
+        <AuthorizationModal v-if="modalState" />
       </Transition>
     </Teleport>
   </header>
 </template>
 
 <script setup lang="ts">
-import LoginModal from "@/components/modules/Modals/Modal.vue";
+import AuthorizationModal from "@/components/modules/Modals/Modal.vue";
 import logo from "./components/logo.vue";
 import user from "./components/user.vue";
 import login from "@/components/blocks/login.vue";
@@ -46,30 +42,23 @@ import burger from "./assets/burger.svg";
 import Navigation from "./components/nav.vue";
 import Sidebar from "@/components/modules/Sidebar/Sidebar.vue";
 import Searchbar from "./components/searchbar.vue";
-import { useAuthorizationStore } from "~/store/authorizationStore";
 
-const store = useAuthorizationStore();
-const modalState = ref(false);
-const modalType = ref("");
+import { useAuthorizationStore } from "~/store/authorizationStore";
+import { useModalStore } from "@/components/modules/Modals/store/modalStore";
+import { storeToRefs } from "pinia";
+
+const authorizationStore = useAuthorizationStore();
+const modalStore = useModalStore();
+const { modalState } = storeToRefs(modalStore);
+
 const sidebarState = ref(false);
 
 const openSidebar = () => (sidebarState.value = true);
 const closeSidebar = () => (sidebarState.value = false);
 
 onMounted(() => {
-  store.initAuthorization();
+  authorizationStore.initAuthorization();
 });
-
-const closeModal = () => {
-  modalState.value = false;
-  document.body.style.overflowY = "visible";
-};
-
-const openModal = (type: any): void => {
-  modalState.value = true;
-  modalType.value = type;
-  document.body.style.overflowY = "hidden";
-};
 </script>
 
 <style lang="scss" scoped>

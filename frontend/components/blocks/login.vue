@@ -1,17 +1,15 @@
 <template>
   <div class="login">
-    <Button @click="$emit('login', 'login-modal')">Войти</Button>
-    <Button @click="$emit('regist', 'registration-modal')">Регистрация</Button>
+    <Button @click="store.openModal('login-modal')">Войти</Button>
+    <Button @click="store.openModal('registration-modal')">Регистрация</Button>
   </div>
 </template>
 
 <script setup lang="ts">
 import Button from "@/components/ui/button.vue";
+import { useModalStore } from "@/components/modules/Modals/store/modalStore";
 
-defineEmits<{
-  (e: "login"): void;
-  (e: "regist"): void;
-}>();
+const store = useModalStore();
 </script>
 
 <style lang="scss" scoped>

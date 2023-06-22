@@ -1,8 +1,8 @@
 <template>
-  <div @click.self="$emit('close', false)" class="modal">
+  <div @click.self="store.closeModal" class="modal">
     <div class="modal__content" :class="{ modal__fullscreen: fullscreen }">
       <div class="modal__header">
-        <CloseIcon @click="$emit('close', false)" />
+        <CloseIcon @click="store.closeModal" />
       </div>
       <component v-if="dynamicComponent" :is="dynamicComponent" />
       <slot v-else />
@@ -12,20 +12,20 @@
 
 <script setup lang="ts">
 import CloseIcon from "@/assets/img/icons/close.svg";
+import { useModalStore } from "./store/modalStore";
+import { storeToRefs } from "pinia";
 
-const { modalType } = defineProps<{
-  modalType: string;
+const props = defineProps<{
   fullscreen?: boolean;
 }>();
 
+const store = useModalStore();
+const { modalType } = storeToRefs(store);
 const dynamicComponent: Ref<Component | null> = shallowRef(null);
-dynamicComponent.value = defineAsyncComponent(
-  () => import(`./components/${modalType}.vue`)
-);
 
-defineEmits<{
-  (e: "close"): void;
-}>();
+dynamicComponent.value = defineAsyncComponent(
+  () => import(`./components/${modalType.value}.vue`)
+);
 </script>
 
 <style lang="scss" scoped>

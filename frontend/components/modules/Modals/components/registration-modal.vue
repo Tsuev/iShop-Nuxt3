@@ -42,7 +42,9 @@
       v-model="user.name"
     />
     <Toggle v-model="role" label="Я продавец" class="my-2" />
-    <Button @click="store.registration"> Зарегистрироваться </Button>
+    <Button @click="authorizationStore.registration">
+      Зарегистрироваться
+    </Button>
   </div>
 </template>
 
@@ -51,12 +53,18 @@ import Input from "~/components/ui/input.vue";
 import Button from "@/components/ui/button.vue";
 import Toggle from "@/components/ui/toggle.vue";
 import { useAuthorizationStore } from "@/store/authorizationStore";
+import { useModalStore } from "@/components/modules/Modals/store/modalStore";
 import { storeToRefs } from "pinia";
 
-const store = useAuthorizationStore();
-const { user } = storeToRefs(store);
-
+const authorizationStore = useAuthorizationStore();
+const modalStore = useModalStore();
+const { user } = storeToRefs(authorizationStore);
 const role = ref(false);
+
+const registrationUser = () => {
+  authorizationStore.registration();
+  modalStore.closeModal();
+};
 watch(role, (val) =>
   val ? (user.value.role = "SELLER") : (user.value.role = "USER")
 );
