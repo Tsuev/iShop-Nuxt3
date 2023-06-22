@@ -1,0 +1,19 @@
+{
+  "name": "ishop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "--prefix /frontend nuxt dev --port=8000 and --prefix backend /nodemon ./src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tsuev/iShop-Nuxt3.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tsuev/iShop-Nuxt3/issues"
+  },
+  "homepage": "https://github.com/Tsuev/iShop-Nuxt3#readme"
+}

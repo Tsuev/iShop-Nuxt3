@@ -20,15 +20,17 @@
     "vue": "latest"
   },
   "dependencies": {
-    "@hebilicious/vue-query-nuxt": "^0.1.0-beta.0",
     "@nuxtjs/axios": "^5.13.6",
     "@pinia/nuxt": "^0.4.8",
-    "@tanstack/vue-query": "^4.29.14",
     "@vueuse/core": "^9.13.0",
     "axios": "^1.4.0",
+    "jwt-decode": "^3.1.2",
+    "maska": "^2.1.9",
     "pinia": "^2.0.34",
+    "v-mask": "^2.3.0",
     "vue-final-modal": "^4.4.2",
     "vue-query": "^1.26.0",
-    "vue-ssr-carousel": "^2.1.0"
+    "vue-ssr-carousel": "^2.1.0",
+    "vue-the-mask": "^0.11.1"
   }
 }

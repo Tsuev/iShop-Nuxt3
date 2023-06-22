@@ -2,6 +2,7 @@
   <div class="custom_input">
     <label class="label">{{ label }}</label>
     <input
+      autocomplete="off"
       :type="type"
       class="input"
       :placeholder="placeholder"

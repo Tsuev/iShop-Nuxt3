@@ -1,8 +1,8 @@
 <template>
-  <div @click.self="$emit('close', false)" class="modal">
+  <div @click.self="modalStore.closeModal(resetAuthError)" class="modal">
     <div class="modal__content" :class="{ modal__fullscreen: fullscreen }">
       <div class="modal__header">
-        <CloseIcon @click="$emit('close', false)" />
+        <CloseIcon @click="modalStore.closeModal(resetAuthError)" />
       </div>
       <component v-if="dynamicComponent" :is="dynamicComponent" />
       <slot v-else />
@@ -12,27 +12,30 @@
 
 <script setup lang="ts">
 import CloseIcon from "@/assets/img/icons/close.svg";
+import { useModalStore } from "./store/modalStore";
+import { useAuthorizationStore } from "@/store/authorizationStore";
+import { storeToRefs } from "pinia";
 
-const { modalType } = defineProps<{
-  modalType: string;
+const props = defineProps<{
   fullscreen?: boolean;
 }>();
 
 const dynamicComponent: Ref<Component | null> = shallowRef(null);
-dynamicComponent.value = defineAsyncComponent(
-  () => import(`./components/${modalType}.vue`)
-);
+const modalStore = useModalStore();
+const authorizationStore = useAuthorizationStore();
+const { modalType } = storeToRefs(modalStore);
 
-defineEmits<{
-  (e: "close"): void;
-}>();
+const resetAuthError = () => (authorizationStore.authError = null);
+dynamicComponent.value = defineAsyncComponent(
+  () => import(`./components/${modalType.value}.vue`)
+);
 </script>
 
 <style lang="scss" scoped>
 .modal {
   @apply fixed w-full h-full bg-black bg-opacity-40 z-50 flex justify-center items-center top-0;
   .modal__content {
-    @apply bg-white rounded-md p-3;
+    @apply bg-white rounded-md p-3 w-[355px];
     .modal__header {
       @apply w-full;
       svg {

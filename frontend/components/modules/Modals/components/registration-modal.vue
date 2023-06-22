@@ -7,14 +7,14 @@
         placeholder="Имя"
         type="text"
         :required="true"
-        v-model="foo"
+        v-model="user.name"
       />
       <Input
         label=""
-        placeholder="Фамилия"
-        type="text"
+        placeholder="Пароль"
+        type="password"
         :required="true"
-        v-model="foo"
+        v-model="user.password"
       />
     </div>
     <div class="login__block">
@@ -23,14 +23,15 @@
         placeholder="Номер для связи"
         type="text"
         :required="true"
-        v-model="foo"
+        v-model="user.phone"
+        v-mask="'+7 (###) ###-##-##'"
       />
       <Input
         label=""
         placeholder="Почта (*необезательно)"
         type="email"
         :required="false"
-        v-model="foo"
+        v-model="user.name"
       />
     </div>
     <Input
@@ -38,10 +39,12 @@
       placeholder="Адрес для доставки/самовывоза"
       type="email"
       :required="false"
-      v-model="foo"
+      v-model="user.name"
     />
-    <Toggle label="Я продавец" />
-    <Button> Зарегистрироваться </Button>
+    <Toggle v-model="role" label="Я продавец" class="my-2" />
+    <Button @click="authorizationStore.registration">
+      Зарегистрироваться
+    </Button>
   </div>
 </template>
 
@@ -49,7 +52,22 @@
 import Input from "~/components/ui/input.vue";
 import Button from "@/components/ui/button.vue";
 import Toggle from "@/components/ui/toggle.vue";
-const foo = ref("");
+import { useAuthorizationStore } from "@/store/authorizationStore";
+import { useModalStore } from "@/components/modules/Modals/store/modalStore";
+import { storeToRefs } from "pinia";
+
+const authorizationStore = useAuthorizationStore();
+const modalStore = useModalStore();
+const { user } = storeToRefs(authorizationStore);
+const role = ref(false);
+
+const registrationUser = () => {
+  authorizationStore.registration();
+  modalStore.closeModal();
+};
+watch(role, (val) =>
+  val ? (user.value.role = "SELLER") : (user.value.role = "USER")
+);
 </script>
 
 <style lang="scss" scoped>

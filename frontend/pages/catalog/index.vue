@@ -30,17 +30,17 @@
         </div>
       </div>
     </div>
+    <Teleport to="body">
+      <Transition>
+        <FilterModal
+          v-if="modalState"
+          @close="closeModal"
+          modalType="filter-modal"
+          :fullscreen="true"
+        />
+      </Transition>
+    </Teleport>
   </div>
-  <Teleport to="body">
-    <Transition>
-      <FilterModal
-        v-if="modalState"
-        @close="closeModal"
-        modalType="filter-modal"
-        :fullscreen="true"
-      />
-    </Transition>
-  </Teleport>
 </template>
 
 <script setup lang="ts">

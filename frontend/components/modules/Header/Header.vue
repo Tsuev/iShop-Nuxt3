@@ -3,10 +3,17 @@
     <div class="header__wrapper">
       <logo />
       <Navigation />
-
+      <!-- <Searchbar /> -->
+      <div class="logo__title">
+        <div class="title">iShop</div>
+        <span class="subtitle flex">
+          Все смартфоны iPhone ЧР
+          <!-- <img src="./assets/chechen.png" alt="" /> -->
+        </span>
+      </div>
       <div class="header__desktop">
-        <user v-if="false" />
-        <login @login="openModal" @regist="openModal" v-else />
+        <user v-if="authorizationStore.isAuth" />
+        <login v-else />
       </div>
 
       <div class="header__mobile">
@@ -20,52 +27,43 @@
     </div>
     <Teleport to="body">
       <Transition>
-        <LoginModal
-          v-if="modalState"
-          @close="closeModal"
-          :modalType="modalType"
-        />
+        <AuthorizationModal v-if="modalState" />
       </Transition>
     </Teleport>
   </header>
 </template>
 
 <script setup lang="ts">
-import LoginModal from "@/components/modules/Modals/Modal.vue";
+import AuthorizationModal from "@/components/modules/Modals/Modal.vue";
 import logo from "./components/logo.vue";
 import user from "./components/user.vue";
 import login from "@/components/blocks/login.vue";
 import burger from "./assets/burger.svg";
 import Navigation from "./components/nav.vue";
 import Sidebar from "@/components/modules/Sidebar/Sidebar.vue";
-import { getUsers } from "./api";
+import Searchbar from "./components/searchbar.vue";
 
-const foo = ref(getUsers());
+import { useAuthorizationStore } from "~/store/authorizationStore";
+import { useModalStore } from "@/components/modules/Modals/store/modalStore";
+import { storeToRefs } from "pinia";
 
-console.log(foo.value);
+const authorizationStore = useAuthorizationStore();
+const modalStore = useModalStore();
+const { modalState } = storeToRefs(modalStore);
 
-const modalState = ref(false);
-const modalType = ref("");
 const sidebarState = ref(false);
 
 const openSidebar = () => (sidebarState.value = true);
 const closeSidebar = () => (sidebarState.value = false);
 
-const closeModal = () => {
-  modalState.value = false;
-  document.body.style.overflowY = "visible";
-};
-
-const openModal = (type: any): void => {
-  modalState.value = true;
-  modalType.value = type;
-  document.body.style.overflowY = "hidden";
-};
+onMounted(() => {
+  authorizationStore.initAuthorization();
+});
 </script>
 
 <style lang="scss" scoped>
 .header {
-  @apply flex justify-center px-1 sticky top-0 z-40;
+  @apply flex justify-center px-2 lg:px-1 sticky top-0 z-40;
 
   background: rgba(255, 255, 255, 0.12);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -73,8 +71,16 @@ const openModal = (type: any): void => {
   -webkit-backdrop-filter: blur(7.2px);
 
   &__wrapper {
-    @apply py-2 flex justify-between items-center max-w-7xl w-full;
-
+    @apply py-2 flex justify-between items-center max-w-7xl w-full gap-1;
+    .logo__title {
+      @apply block lg:hidden text-center;
+      .title {
+        @apply text-xl font-bold;
+      }
+      .subtitle {
+        @apply text-sm;
+      }
+    }
     .header__desktop {
       @apply hidden lg:block;
     }
