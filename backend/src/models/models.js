@@ -6,6 +6,7 @@ const User = sequelize.define('user', {
     email: {type: DataTypes.STRING, defaultValue: null, unique: true},
     name: {type: DataTypes.STRING},
     phone: {type: DataTypes.STRING, unique: true},
+    address: {type: DataTypes.STRING, defaultValue: null},
     password: {type: DataTypes.STRING},
     role: {type: DataTypes.STRING, defaultValue: 'USER'},
     isAccepted: {type: DataTypes.BOOLEAN, defaultValue: false}
@@ -24,7 +25,6 @@ const Device = sequelize.define('device', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     name: {type: DataTypes.STRING, allowNull: false},
     desc: {type: DataTypes.STRING, allowNull: false},
-    price: {type: DataTypes.INTEGER, allowNull: false},
     price: {type: DataTypes.INTEGER, defaultValue: 0},
     img: {type: DataTypes.STRING, allowNull: false},
     version: {type: DataTypes.STRING, allowNull: false},

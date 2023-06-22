@@ -4,9 +4,9 @@ import ApiError from "../handlers/ApiError.js";
 import jwt from "jsonwebtoken";
 
 const { User, Basket } = models;
-const generateJwt = (id, phone, role, name) => {
+const generateJwt = (id, phone, role, name, email, address) => {
     return jwt.sign(
-        { id, phone, role, name },
+        { id, phone, role, name, email: email ? email : '', address: address ? address : '' },
         process.env.JWT_SECRET_KEY,
         { expiresIn: "24h" }
     )
@@ -14,7 +14,11 @@ const generateJwt = (id, phone, role, name) => {
 
 
 export const registration = async (req, res, next) => {
-    const { phone, password, role, name } = req.body;
+    const { phone, password, role, name, email, address} = req.body;
+
+
+
+
     if (!phone || !password || !name || password.length < 6) {
         return next(ApiError.badRequest('Некорректные данные'))
     }
@@ -27,10 +31,10 @@ export const registration = async (req, res, next) => {
 
     const hashPassword = await bcrypt.hash(password, 5);
 
-    const user = await User.create({ phone, role, name, password: hashPassword, })
+    const user = await User.create({ phone, role, name, password: hashPassword, email: email ? email : null, address: address ? address : null });
     const basket = await Basket.create({ userId: user.id });
 
-    const jwt = generateJwt(user.id, user.phone, user.role, user.name);
+    const jwt = generateJwt(user.id, user.phone, user.role, user.name, user.email, user.address);
 
     res.json({
         token: jwt
@@ -56,7 +60,7 @@ export const login = async (req, res, next) => {
         return next(ApiError.internal("Указан неверный пароль"))
     }
 
-    const jwt = generateJwt(user.id, user.phone, user.role, user.name);
+    const jwt = generateJwt(user.id, user.phone, user.role, user.name, user.email, user.address);
 
     res.json({
         token: jwt
@@ -65,7 +69,7 @@ export const login = async (req, res, next) => {
 
 export const check = (req, res) => {
     
-    const jwt = generateJwt(req.user.id, req.user.phone, req.user.role, req.user.name);
+    const jwt = generateJwt(req.user.id, req.user.phone, req.user.role, req.user.name, req.user.email, req.user.address);
 
     res.json({
         token: jwt
