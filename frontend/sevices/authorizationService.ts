@@ -19,12 +19,17 @@ async function fetchRegistration ({ phone, password, name, role }: User): Promis
 }
 
 async function fetchLogin ({ phone, password }: LoginType): Promise<AuthorizationType> {
-  const { data: { token } } = await axios.post('/login', {
-    phone,
-    password
-  })
-  
-  return jwt(token)
+  try {
+    const { data: { token } } = await axios.post('/login', {
+      phone,
+      password
+    })
+    
+    return jwt(token)
+  } catch (error) {
+    return error as AxiosError
+  }
+
 }
 
 

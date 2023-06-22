@@ -17,7 +17,7 @@
       v-model="user.password"
     />
     <div class="login__error">
-      {{ authError?.response?.data }}
+      {{ authError?.response?.data?.message }}
     </div>
 
     <Button @click="store.login">

@@ -12,7 +12,7 @@ const useAuthorizationStore = defineStore('authorization', () => {
     })
     
     const isAuth: Ref<boolean> = ref(false)
-    const authError: Ref<AxiosError | undefined> = ref()
+    const authError = ref()
     const isLoading: Ref<boolean> = ref(false)
 
     async function registration (): Promise<AuthorizationType> {
