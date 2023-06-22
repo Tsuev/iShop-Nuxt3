@@ -16,24 +16,35 @@
       :required="true"
       v-model="user.password"
     />
-    <Button @click="store.login"> Войти </Button>
+    <div class="login__error">
+      {{ authError?.response?.data }}
+    </div>
+
+    <Button @click="store.login">
+      <Loader v-if="isLoading" />
+      <span v-else>Войти</span>
+    </Button>
   </div>
 </template>
 
 <script setup lang="ts">
 import Input from "~/components/ui/input.vue";
 import Button from "@/components/ui/button.vue";
+import Loader from "@/components/ui/loader.vue";
 import { useAuthorizationStore } from "~/store/authorizationStore";
 import { storeToRefs } from "pinia";
 
 const store = useAuthorizationStore();
-const { user } = storeToRefs(store);
+const { user, authError, isLoading } = storeToRefs(store);
 </script>
 
 <style lang="scss" scoped>
 .login {
   &__title {
     @apply text-center text-2xl font-bold mb-8;
+  }
+  &__error {
+    @apply text-center text-red-500 mb-1;
   }
 }
 </style>

@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { AuthorizationType, User } from '~/types/AuthorizationTypes'
 import { fetchRegistration, fetchLogin } from '~/sevices/authorizationService'
-import { isAxiosError } from 'axios'
+import { AxiosError, isAxiosError } from 'axios'
 
 const useAuthorizationStore = defineStore('authorization', () => {
     const user: Ref<User> = ref({
@@ -10,28 +10,36 @@ const useAuthorizationStore = defineStore('authorization', () => {
       phone: '',
       role: 'USER'
     })
-    const isAuth = ref(false)
+    
+    const isAuth: Ref<boolean> = ref(false)
+    const authError: Ref<AxiosError | undefined> = ref()
+    const isLoading: Ref<boolean> = ref(false)
 
     async function registration (): Promise<AuthorizationType> {
+      isLoading.value = true
       const response = await fetchRegistration(user.value)
       if(!isAxiosError(response)) {
         user.value = response
         localStorage.setItem('user', JSON.stringify(response))
+        isAuth.value = true
+      } else {
+        authError.value = response
       }
-      localStorage.setItem('user', JSON.stringify(response))
-      isAuth.value = true
-      
+      isLoading.value = false
       return response
     }
 
     async function login (): Promise<AuthorizationType> {
+      isLoading.value = true
       const response = await fetchLogin({ phone: user.value.phone, password: user.value.password })
       if(!isAxiosError(response)) {
         user.value = response
         localStorage.setItem('user', JSON.stringify(response))
+        isAuth.value = true
+      } else {
+        authError.value = response
       }
-      isAuth.value = true
-
+      isLoading.value = false
       return response
     }
 
@@ -59,6 +67,8 @@ const useAuthorizationStore = defineStore('authorization', () => {
     return {
       user,
       isAuth,
+      authError,
+      isLoading,
       registration,
       login,
       logout,
