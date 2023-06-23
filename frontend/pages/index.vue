@@ -12,7 +12,9 @@
       </Slide>
 
       <template #addons>
-        <Navigation />
+        <div class="hidden lg:flex">
+          <Navigation />
+        </div>
         <Pagination />
       </template>
     </Carousel>
@@ -97,7 +99,7 @@ import ProductCard from "@/components/modules/ProductCard/ProductCard.vue";
 }
 </style>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .main {
   @apply pt-5;
   .carousel {

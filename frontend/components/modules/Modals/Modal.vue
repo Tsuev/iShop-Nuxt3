@@ -26,9 +26,12 @@ const authorizationStore = useAuthorizationStore();
 const { modalType } = storeToRefs(modalStore);
 
 const resetAuthError = () => (authorizationStore.authError = null);
-dynamicComponent.value = defineAsyncComponent(
-  () => import(`./components/${modalType.value}.vue`)
-);
+
+if (modalType.value) {
+  dynamicComponent.value = defineAsyncComponent(
+    () => import(`./components/${modalType.value}.vue`)
+  );
+}
 </script>
 
 <style lang="scss" scoped>

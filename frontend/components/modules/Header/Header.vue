@@ -17,10 +17,10 @@
       </div>
 
       <div class="header__mobile">
-        <burger @click="openSidebar" />
+        <burger @click="sidebarStore.openSidebar('')" />
         <Teleport to="body">
           <Transition>
-            <Sidebar @close="closeSidebar" :isOpen="sidebarState" />
+            <Sidebar />
           </Transition>
         </Teleport>
       </div>
@@ -45,16 +45,15 @@ import Searchbar from "./components/searchbar.vue";
 
 import { useAuthorizationStore } from "~/store/authorizationStore";
 import { useModalStore } from "@/components/modules/Modals/store/modalStore";
+import { useSidebarStore } from "../Sidebar/store/sidebarStore";
 import { storeToRefs } from "pinia";
 
 const authorizationStore = useAuthorizationStore();
 const modalStore = useModalStore();
+const sidebarStore = useSidebarStore();
+
 const { modalState } = storeToRefs(modalStore);
-
-const sidebarState = ref(false);
-
-const openSidebar = () => (sidebarState.value = true);
-const closeSidebar = () => (sidebarState.value = false);
+const { sidebarState } = storeToRefs(sidebarStore);
 
 onMounted(() => {
   authorizationStore.initAuthorization();

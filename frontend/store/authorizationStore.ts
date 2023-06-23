@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import { AuthorizationType, User } from '~/types/AuthorizationTypes'
 import { fetchRegistration, fetchLogin } from '~/sevices/authorizationService'
 import { AxiosError, isAxiosError } from 'axios'
+import { useModalStore } from '~/components/modules/Modals/store/modalStore'
 
 const useAuthorizationStore = defineStore('authorization', () => {
     const user: Ref<User> = ref({
@@ -22,6 +23,7 @@ const useAuthorizationStore = defineStore('authorization', () => {
         user.value = response
         localStorage.setItem('user', JSON.stringify(response))
         isAuth.value = true
+        useModalStore().modalState = false
       } else {
         authError.value = response
       }
@@ -36,6 +38,7 @@ const useAuthorizationStore = defineStore('authorization', () => {
         user.value = response
         localStorage.setItem('user', JSON.stringify(response))
         isAuth.value = true
+        useModalStore().modalState = false
       } else {
         authError.value = response
       }

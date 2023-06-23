@@ -1,29 +1,53 @@
 <template>
-  <div class="sidebar" :class="{ 'sidebar--active': isOpen }">
+  <div
+    ref="sidebar"
+    class="sidebar"
+    :class="{ 'sidebar--active': sidebarState }"
+  >
     <div class="sidebar__header">
-      <CloseIcon @click="$emit('close', false)" />
+      <CloseIcon @click="sidebaStore.closeSidebar" />
     </div>
     <div class="sidebar__content">
-      <Login />
+      <User v-if="authorizationStore.isAuth" :username="user.name" />
+      <Login v-else />
+      <component v-if="dynamicComponent" :is="dynamicComponent" />
+      <slot />
     </div>
   </div>
+  <div v-if="sidebarState" class="sidebar-bg"></div>
 </template>
 
 <script setup lang="ts">
 import CloseIcon from "@/assets/img/icons/close.svg";
 import Login from "~/components/blocks/login.vue";
-withDefaults(defineProps<{ isOpen: boolean }>(), {
-  isOpen: false,
-});
-defineEmits<{
-  (e: "close"): void;
-}>();
+import User from "@/components/modules/Header/components/user.vue";
+import { useSidebarStore } from "./store/sidebarStore";
+import { useAuthorizationStore } from "~/store/authorizationStore";
+import { storeToRefs } from "pinia";
+import { onClickOutside } from "@vueuse/core";
+
+const sidebar = ref(null);
+const sidebaStore = useSidebarStore();
+const authorizationStore = useAuthorizationStore();
+const { sidebarState, sidebarType } = storeToRefs(sidebaStore);
+const { user } = storeToRefs(authorizationStore);
+const dynamicComponent: Ref<Component | null> = shallowRef(null);
+
+if (sidebarType.value) {
+  dynamicComponent.value = defineAsyncComponent(
+    () => import(`./components/${sidebarType.value}.vue`)
+  );
+}
+onClickOutside(sidebar, () => sidebaStore.closeSidebar());
 </script>
 
 <style lang="scss" scoped>
+.sidebar-bg {
+  @apply absolute z-[45] opacity-40 bg-black w-full h-full;
+}
 .sidebar {
-  @apply fixed w-full h-full bg-white z-50 top-0 block lg:hidden p-3;
-  transform: translateX(100%);
+  @apply fixed w-1/2 h-full bg-white z-50 top-0 block lg:hidden p-3;
+  transform: translateX(200%);
   transition-duration: 0.3s;
 
   &__header {
@@ -34,7 +58,7 @@ defineEmits<{
 }
 
 .sidebar--active {
-  transform: translateX(0);
+  transform: translateX(100%);
   transition-duration: 0.3s;
 }
 </style>

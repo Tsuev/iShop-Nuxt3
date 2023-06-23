@@ -42,9 +42,7 @@
       v-model="user.name"
     />
     <Toggle v-model="role" label="Я продавец" class="my-2" />
-    <Button @click="authorizationStore.registration">
-      Зарегистрироваться
-    </Button>
+    <Button @click="registration"> Зарегистрироваться </Button>
   </div>
 </template>
 
@@ -61,9 +59,10 @@ const modalStore = useModalStore();
 const { user } = storeToRefs(authorizationStore);
 const role = ref(false);
 
-const registrationUser = () => {
-  authorizationStore.registration();
-  modalStore.closeModal();
+const registration = async () => {
+  authorizationStore.registration().then(() => {
+    modalStore.closeModal();
+  });
 };
 watch(role, (val) =>
   val ? (user.value.role = "SELLER") : (user.value.role = "USER")
