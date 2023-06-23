@@ -3,6 +3,7 @@
     <div class="personal-area__nav personal-area__block">
       <personalAreaNavigation />
     </div>
+
     <div class="personal-area__content personal-area__block">
       <Lk />
     </div>
