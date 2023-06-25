@@ -1,3 +1,5 @@
+import { ref } from "vue"
+
 const NavData = [
   {
     id: 0,
@@ -23,22 +25,22 @@ const NavData = [
     icon: 'fluent:wrench-screwdriver-24-regular',
     bg: ''
   },
-  // {
-  //   id: 3,
-  //   title: 'Быстрые продажи',
-  //   shortTitle: 'Продажа',
-  //   link: '/hot-sales',
-  //   icon: 'material-symbols:local-fire-department-rounded',
-  //   bg: ''
-  // },
-  // {
-  //   id: 4,
-  //   title: 'iPhone под заказ',
-  //   shortTitle: 'Заказать',
-  //   link: '/on-order',
-  //   icon: 'material-symbols:border-color-outline',
-  //   bg: ''
-  // },
+  {
+    id: 3,
+    title: 'Быстрые продажи',
+    shortTitle: 'Продажа',
+    link: '/hot-sales',
+    icon: 'material-symbols:local-fire-department-rounded',
+    bg: ''
+  },
+  {
+    id: 4,
+    title: 'iPhone под заказ',
+    shortTitle: 'Заказать',
+    link: '/on-order',
+    icon: 'material-symbols:border-color-outline',
+    bg: ''
+  },
   {
     id: 5,
     title: 'Профиль',
@@ -49,28 +51,8 @@ const NavData = [
   },
 ]
 
-const lkNavData = [
-  {
-    id: 0,
-    title: "Личный кабинет",
-    component: "lk",
-    icon: 'ic:baseline-account-box'
-  },
-  {
-    id: 1,
-    title: "Заказы",
-    component: "order",
-    icon: "ic:twotone-shopping-basket"
-  },
-  {
-    id: 2,
-    title: "Верификация продавцов",
-    component: "verificatrion-sellers",
-    icon: "ic:twotone-shopping-basket"
-  },
-]
+
 
 export { 
-  NavData, 
-  lkNavData
+  NavData
 }

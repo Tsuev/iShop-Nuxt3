@@ -9,7 +9,7 @@ export const getSellers = async (req, res)=> {
     sellers = JSON.parse( JSON.stringify(sellers));
     res.json({
         accepted: sellers.filter(el => el.isAccepted == true),
-        notAccpted: sellers.filter(el => el.isAccepted == false)
+        notAccepted: sellers.filter(el => el.isAccepted == false)
     });
 } 
 
