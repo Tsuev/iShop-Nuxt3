@@ -1,6 +1,6 @@
 <template>
   <div class="user">
-    <div class="user__logo">
+    <div @click="navigateToLk" class="user__logo">
       <avatarSvg />
     </div>
     <div class="user__name">
@@ -29,6 +29,12 @@ function logout() {
   sidebarStore.closeSidebar();
   router.push("/");
 }
+
+function navigateToLk() {
+  sidebarStore.closeSidebar();
+  router.push("/lk");
+}
+
 defineProps<{
   username?: string;
   logoutShow?: boolean;

@@ -25,22 +25,22 @@ const NavData = [
     icon: 'fluent:wrench-screwdriver-24-regular',
     bg: ''
   },
-  {
-    id: 3,
-    title: 'Быстрые продажи',
-    shortTitle: 'Продажа',
-    link: '/hot-sales',
-    icon: 'material-symbols:local-fire-department-rounded',
-    bg: ''
-  },
-  {
-    id: 4,
-    title: 'iPhone под заказ',
-    shortTitle: 'Заказать',
-    link: '/on-order',
-    icon: 'material-symbols:border-color-outline',
-    bg: ''
-  },
+  // {
+  //   id: 3,
+  //   title: 'Быстрые продажи',
+  //   shortTitle: 'Продажа',
+  //   link: '/hot-sales',
+  //   icon: 'material-symbols:local-fire-department-rounded',
+  //   bg: ''
+  // },
+  // {
+  //   id: 4,
+  //   title: 'iPhone под заказ',
+  //   shortTitle: 'Заказать',
+  //   link: '/on-order',
+  //   icon: 'material-symbols:border-color-outline',
+  //   bg: ''
+  // },
   {
     id: 5,
     title: 'Профиль',
