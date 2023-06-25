@@ -1,8 +1,14 @@
 import { useAuthorizationStore } from "~/store/authorizationStore"
-const store = useAuthorizationStore()
+import { useSidebarStore } from "~/components/modules/Sidebar/store/sidebarStore";
+
+const authorizationStore = useAuthorizationStore()
+const sidebarStore = useSidebarStore()
 
 export default defineNuxtRouteMiddleware((to, from) => {
-  if (true) {
-    return navigateTo('/')
+  if (to.path === '/lk' && !authorizationStore.isAuth) {
+    if (process.client) sidebarStore.openSidebar()
+    return navigateTo('/');
   }
+  console.log(to, from);
+  
 })

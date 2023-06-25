@@ -20,7 +20,7 @@
       {{ authError?.response?.data?.message }}
     </div>
 
-    <Button @click="store.login">
+    <Button @click="authorizationStore.login">
       <Loader v-if="isLoading" />
       <span v-else>Войти</span>
     </Button>
@@ -34,8 +34,8 @@ import Loader from "@/components/ui/loader.vue";
 import { useAuthorizationStore } from "~/store/authorizationStore";
 import { storeToRefs } from "pinia";
 
-const store = useAuthorizationStore();
-const { user, authError, isLoading } = storeToRefs(store);
+const authorizationStore = useAuthorizationStore();
+const { user, authError, isLoading } = storeToRefs(authorizationStore);
 </script>
 
 <style lang="scss" scoped>

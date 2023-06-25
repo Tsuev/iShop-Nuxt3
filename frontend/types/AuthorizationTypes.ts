@@ -5,6 +5,8 @@ interface User {
   password: string
   phone: string
   role: string
+  email: string
+  address: string
 }
 
 type AuthorizationType = User | AxiosError 

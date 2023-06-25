@@ -9,6 +9,8 @@ const useAuthorizationStore = defineStore('authorization', () => {
       name: '',
       password: '',
       phone: '',
+      address: '',
+      email: '',
       role: 'USER'
     })
     
@@ -51,9 +53,14 @@ const useAuthorizationStore = defineStore('authorization', () => {
         name: '',
         password: '',
         phone: '',
+        address: '',
+        email: '',
         role: 'USER'
       }
-
+      isAuth.value = false
+      authError.value = null
+      isLoading.value = false
+  
       localStorage.removeItem('user')
     }
     

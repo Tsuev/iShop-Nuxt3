@@ -54,11 +54,19 @@ const lkNavData = [
     id: 0,
     title: "Личный кабинет",
     component: "lk",
+    icon: 'ic:baseline-account-box'
   },
   {
     id: 1,
     title: "Заказы",
     component: "order",
+    icon: "ic:twotone-shopping-basket"
+  },
+  {
+    id: 2,
+    title: "Верификация продавцов",
+    component: "verificatrion-sellers",
+    icon: "ic:twotone-shopping-basket"
   },
 ]
 

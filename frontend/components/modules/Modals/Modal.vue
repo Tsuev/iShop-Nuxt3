@@ -1,6 +1,10 @@
 <template>
-  <div @click.self="modalStore.closeModal(resetAuthError)" class="modal">
-    <div class="modal__content" :class="{ modal__fullscreen: fullscreen }">
+  <div class="modal">
+    <div
+      ref="modal"
+      class="modal__content"
+      :class="{ modal__fullscreen: fullscreen }"
+    >
       <div class="modal__header">
         <CloseIcon @click="modalStore.closeModal(resetAuthError)" />
       </div>
@@ -15,17 +19,23 @@ import CloseIcon from "@/assets/img/icons/close.svg";
 import { useModalStore } from "./store/modalStore";
 import { useAuthorizationStore } from "@/store/authorizationStore";
 import { storeToRefs } from "pinia";
+import { onClickOutside } from "@vueuse/core";
 
 const props = defineProps<{
   fullscreen?: boolean;
 }>();
 
+const modal = ref(null);
 const dynamicComponent: Ref<Component | null> = shallowRef(null);
 const modalStore = useModalStore();
 const authorizationStore = useAuthorizationStore();
 const { modalType } = storeToRefs(modalStore);
 
 const resetAuthError = () => (authorizationStore.authError = null);
+
+onClickOutside(modal, () => {
+  modalStore.closeModal(resetAuthError);
+});
 
 if (modalType.value) {
   dynamicComponent.value = defineAsyncComponent(
