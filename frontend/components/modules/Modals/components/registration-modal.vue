@@ -46,7 +46,7 @@
       {{ authError?.response?.data?.message }}
     </div>
     <Button @click="authorizationStore.registration">
-      <Loader v-if="isLoading" />
+      <Loader class="w-5 h-6" v-if="isLoading" />
       <span v-else>Зарегестрироваться</span>
     </Button>
   </div>

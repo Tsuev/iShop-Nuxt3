@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { SellersForApprove } from '../types/personalAreaTypes'
-import { fetchVerificationSellers } from "../api/personalAreaService"
+import { fetchVerificationSellers, fetchApprovedSeller } from "../api/personalAreaService"
 import { AxiosError, isAxiosError } from 'axios'
 
 export const usePersonalAreaStore =  defineStore('personal-area', () => {
@@ -25,7 +25,7 @@ export const usePersonalAreaStore =  defineStore('personal-area', () => {
       id: 2,
       title: "Верификация продавцов",
       component: "verificatrion-sellers",
-      icon: "ic:outline-check-circle",
+      icon: "ic:baseline-fact-check",
       access: ["ADMIN"],
       active: false
     },
@@ -33,20 +33,31 @@ export const usePersonalAreaStore =  defineStore('personal-area', () => {
   const activeLkComponent: Ref<string> = ref('lk')
   const sellersForApprove: Ref<SellersForApprove | undefined> = ref()
   const personalAreaError: Ref<AxiosError | undefined> = ref()
+  const isLoading: Ref<boolean> = ref(false)
 
   async function fetchSellersForApprove(): Promise<void> {
+    isLoading.value = true
     const response = await fetchVerificationSellers()
     if(!isAxiosError(response)) {
       sellersForApprove.value = response
     } else {
       personalAreaError.value = response
     }
-
+    isLoading.value = false
   }
+
+  async function fetchApprovedSeller(id:number) {
+    const response = await fetchApprovedSeller(id)
+    console.log(response);
+    
+  }
+
   return {
     lkNavData,
+    isLoading,
     activeLkComponent,
     sellersForApprove,
-    fetchSellersForApprove
+    fetchSellersForApprove,
+    fetchApprovedSeller
   }
 })

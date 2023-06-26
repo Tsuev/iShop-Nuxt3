@@ -12,6 +12,18 @@ async function fetchVerificationSellers (): Promise<SellersForApprove | AxiosErr
   }
 }
 
+async function fetchApprovedSeller(id: number) {
+  try {
+    const response = await axios.post('/api/accept-seller', {
+      id
+    })
+
+    console.log(response);
+  } catch (error) {
+    
+  }
+}
 export {
-  fetchVerificationSellers
+  fetchVerificationSellers,
+  fetchApprovedSeller
 }

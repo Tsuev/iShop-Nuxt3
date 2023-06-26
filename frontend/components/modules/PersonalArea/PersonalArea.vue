@@ -21,7 +21,6 @@
 <script setup lang="ts">
 import personalAreaNavigation from "./components/personal-area-navigation.vue";
 import { usePersonalAreaStore } from "./store/personalAreaStore";
-import { fetchVerificationSellers } from "./api/personalAreaService";
 
 const personalAreaStore = usePersonalAreaStore();
 const dynamicComponent: Ref<Component | null> = shallowRef(null);
@@ -36,8 +35,6 @@ function changeComponent(component: string) {
     () => import(`./components/${component}.vue`)
   );
 }
-
-fetchVerificationSellers();
 </script>
 
 <style lang="scss">

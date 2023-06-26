@@ -40,7 +40,7 @@ onBeforeMount(() => {
 <style lang="scss" scoped>
 .lk {
   &__content {
-    @apply max-w-sm flex flex-col gap-2;
+    @apply max-w-lg flex flex-col gap-2;
 
     .content__item {
       @apply font-medium flex justify-between text-lg;

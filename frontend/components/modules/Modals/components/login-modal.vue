@@ -21,7 +21,7 @@
     </div>
 
     <Button @click="authorizationStore.login">
-      <Loader v-if="isLoading" />
+      <Loader class="w-5 h-6" v-if="isLoading" />
       <span v-else>Войти</span>
     </Button>
   </div>
