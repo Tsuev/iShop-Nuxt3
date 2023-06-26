@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { SellersForApprove } from '../types/personalAreaTypes'
-import { fetchVerificationSellers, fetchApprovedSeller } from "../api/personalAreaService"
+import { fetchVerificationSellers, fetchApproveSeller } from "../api/personalAreaService"
 import { AxiosError, isAxiosError } from 'axios'
 
 export const usePersonalAreaStore =  defineStore('personal-area', () => {
@@ -47,9 +47,13 @@ export const usePersonalAreaStore =  defineStore('personal-area', () => {
   }
 
   async function fetchApprovedSeller(id:number) {
-    const response = await fetchApprovedSeller(id)
-    console.log(response);
-    
+    await fetchApproveSeller(id)
+    const response = await fetchVerificationSellers()
+    if(!isAxiosError(response)) {
+      sellersForApprove.value = response
+    } else {
+      personalAreaError.value = response
+    }
   }
 
   return {

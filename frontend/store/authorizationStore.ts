@@ -82,7 +82,7 @@ const useAuthorizationStore = defineStore('authorization', () => {
       registration,
       login,
       logout,
-      initAuthorization,
+      initAuthorization
     }
 })
 

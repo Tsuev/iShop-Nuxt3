@@ -12,18 +12,16 @@ async function fetchVerificationSellers (): Promise<SellersForApprove | AxiosErr
   }
 }
 
-async function fetchApprovedSeller(id: number) {
+async function fetchApproveSeller(id: number): Promise<SellersForApprove | AxiosError> {
   try {
-    const response = await axios.post('/api/accept-seller', {
-      id
-    })
+    const { data } = await axios.post('/accept-seller', {id})
 
-    console.log(response);
+    return data
   } catch (error) {
-    
+    return error as AxiosError
   }
 }
 export {
   fetchVerificationSellers,
-  fetchApprovedSeller
+  fetchApproveSeller
 }

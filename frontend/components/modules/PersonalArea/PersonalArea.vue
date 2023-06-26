@@ -40,15 +40,14 @@ function changeComponent(component: string) {
 <style lang="scss">
 .personal-area {
   @apply grid grid-cols-12 gap-4 pt-5;
+  &__title {
+    @apply text-2xl font-bold mb-5;
+  }
 
   &__nav {
     @apply col-span-12 lg:col-span-3;
     @apply flex flex-row lg:flex-col gap-5 lg:gap-1 justify-center lg:justify-start;
     @apply p-3 lg:p-5;
-  }
-
-  &__title {
-    @apply text-2xl font-bold mb-5;
   }
 
   &__content {
