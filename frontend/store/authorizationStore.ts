@@ -49,6 +49,7 @@ const useAuthorizationStore = defineStore('authorization', () => {
     }
 
     function logout(): void {
+      useRouter().push('/')
       user.value = {
         name: '',
         password: '',
@@ -60,7 +61,7 @@ const useAuthorizationStore = defineStore('authorization', () => {
       isAuth.value = false
       authError.value = null
       isLoading.value = false
-  
+      
       localStorage.removeItem('user')
     }
     

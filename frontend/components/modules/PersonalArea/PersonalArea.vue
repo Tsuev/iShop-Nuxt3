@@ -10,6 +10,10 @@
         :access="item.access"
         @changeComponent="changeComponent"
       />
+      <div @click="authorizationStore.logout" class="lk__exit">
+        <Icon size="30" class="text-red-400" name="ic:baseline-exit-to-app" />
+        <div class="lk__exit__title">Выйти из аккаунат</div>
+      </div>
     </div>
 
     <div class="personal-area__content personal-area__block">
@@ -21,8 +25,10 @@
 <script setup lang="ts">
 import personalAreaNavigation from "./components/personal-area-navigation.vue";
 import { usePersonalAreaStore } from "./store/personalAreaStore";
+import { useAuthorizationStore } from "~/store/authorizationStore";
 
 const personalAreaStore = usePersonalAreaStore();
+const authorizationStore = useAuthorizationStore();
 const dynamicComponent: Ref<Component | null> = shallowRef(null);
 
 dynamicComponent.value = defineAsyncComponent(
@@ -48,6 +54,14 @@ function changeComponent(component: string) {
     @apply col-span-12 lg:col-span-3;
     @apply flex flex-row lg:flex-col gap-5 lg:gap-1 justify-center lg:justify-start;
     @apply p-3 lg:p-5;
+
+    .lk__exit {
+      @apply flex items-center gap-2 text-lg cursor-pointer;
+
+      &__title {
+        @apply hidden lg:block text-red-400;
+      }
+    }
   }
 
   &__content {

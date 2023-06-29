@@ -13,7 +13,7 @@ import { NavData } from "@/constants/navigation";
 
 <style lang="scss" scoped>
 .mobile-nav {
-  @apply flex justify-around lg:hidden w-full fixed bottom-0 p-2 overflow-hidden bg-zinc-900 rounded-t-lg z-[60];
+  @apply flex justify-around lg:hidden w-full fixed bottom-0 p-2 overflow-hidden bg-zinc-900 rounded-t-lg z-[60] pb-8;
 
   a {
     @apply flex flex-col justify-center items-center;

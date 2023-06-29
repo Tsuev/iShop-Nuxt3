@@ -27,7 +27,6 @@ const router = useRouter();
 function logout() {
   authorizationStore.logout();
   sidebarStore.closeSidebar();
-  router.push("/");
 }
 
 function navigateToLk() {
