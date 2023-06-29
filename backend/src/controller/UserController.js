@@ -16,9 +16,6 @@ const generateJwt = (id, phone, role, name, email, address) => {
 export const registration = async (req, res, next) => {
     const { phone, password, role, name, email, address} = req.body;
 
-
-
-
     if (!phone || !password || !name || password.length < 6) {
         return next(ApiError.badRequest('Некорректные данные'))
     }
@@ -57,7 +54,7 @@ export const login = async (req, res, next) => {
     let comparePassword = bcrypt.compareSync(password, user.password);
 
     if (!comparePassword) {
-        return next(ApiError.internal("Указан неверный пароль"))
+        return next(ApiError.internal("Указан неверный пароль или номер телефона"))
     }
 
     const jwt = generateJwt(user.id, user.phone, user.role, user.name, user.email, user.address);
