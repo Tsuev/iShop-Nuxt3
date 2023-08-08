@@ -5,7 +5,9 @@
     >
       {{ name }}
     </th>
-    <td class="px-6 py-4">{{ phone }}</td>
+    <td class="px-6 py-4 whitespace-nowrap">
+      {{ phone }}
+    </td>
     <td class="px-6 py-4 hidden lg:table-cell">
       {{ email || "Не указано" }}
     </td>
