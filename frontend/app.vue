@@ -5,7 +5,19 @@
   </NuxtLayout>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import axios from "axios";
+
+const router = useRouter();
+
+try {
+  const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
+  console.log("success connection");
+} catch (error) {
+  router.push("/services");
+  console.log("connection error: " + error);
+}
+</script>
 
 <style lang="scss">
 .page-enter-active,

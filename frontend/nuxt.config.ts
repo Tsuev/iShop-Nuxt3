@@ -3,7 +3,6 @@ import svgLoader from 'vite-svg-loader'
 
 export default defineNuxtConfig({
   modules: [
-    '@vite-pwa/nuxt',
     '@nuxtjs/tailwindcss',
     '@pinia/nuxt',
     'nuxt-icon',
