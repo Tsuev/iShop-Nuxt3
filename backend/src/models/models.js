@@ -38,38 +38,7 @@ const Device = sequelize.define('device', {
 const Rating = sequelize.define('rating',{
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     rate: {type: DataTypes.INTEGER, allowNull: false},
-});
-
-// const Version = sequelize.define.apply('version', {
-
-//     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-//     title: {type: DataTypes.STRING, allowNull: false}
-// })
-
-// const Model = sequelize.define.apply('model', {
-//     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-//     title: {type: DataTypes.STRING, allowNull: false}
-// })
-
-// const Color = sequelize.define.apply('color', {
-//     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-//     title: {type: DataTypes.STRING, allowNull: false}
-// })
-
-// const Condition = sequelize.define.apply('condition', {
-//     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-//     title: {type: DataTypes.STRING, allowNull: false}
-// })
-
-// const BatteryCondition = sequelize.define.apply('battery_condition', {
-//     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-//     title: {type: DataTypes.STRING, allowNull: false}
-// })
-
-// const Memory = sequelize.define.apply('memory', {
-//     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-//     title: {type: DataTypes.STRING, allowNull: false}
-// })   
+}); 
 
 User.hasOne(Basket);
 Basket.belongsTo(User);

@@ -2,6 +2,11 @@
 import svgLoader from 'vite-svg-loader'
 
 export default defineNuxtConfig({
+  runtimeConfig: {
+    public: {
+      baseURL: process.env.BASE_URL || 'http://192.168.1.35:5000/api/',
+    },
+  },
   modules: [
     '@nuxtjs/tailwindcss',
     '@pinia/nuxt',
