@@ -29,6 +29,14 @@ export const usePersonalAreaStore =  defineStore('personal-area', () => {
       access: ["ADMIN"],
       active: false
     },
+    {
+      id: 3,
+      title: "Добавление товаров",
+      component: "verificatrion-sellers",
+      icon: "ic:baseline-phone-iphone",
+      access: ["ADMIN, SELLER"],
+      active: false
+    },
   ])
   const activeLkComponent: Ref<string> = ref('lk')
   const sellersForApprove: Ref<SellersForApprove | undefined> = ref()
