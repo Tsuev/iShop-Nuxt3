@@ -84,6 +84,11 @@
 import { Carousel, Navigation, Pagination, Slide } from "vue3-carousel";
 import ContentBlock from "@/components/ui/content-block.vue";
 import ProductCard from "@/components/modules/ProductCard/ProductCard.vue";
+
+const { $api } = useNuxtApp();
+
+const { data, pending, error, refresh } = await $api("GET", "http://localhost:5000/api/device");
+
 </script>
 
 <style lang="scss">
