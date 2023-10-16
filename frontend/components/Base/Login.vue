@@ -8,7 +8,7 @@
 <script setup lang="ts">
 import Button from "@/components/ui/button.vue";
 import { useModalStore } from "@/components/modules/Modals/store/modalStore";
-import { useSidebarStore } from "../modules/Sidebar/store/sidebarStore";
+import { useSidebarStore } from "@/store/sidebarStore";
 
 const modalStore = useModalStore();
 const sidebarStore = useSidebarStore();

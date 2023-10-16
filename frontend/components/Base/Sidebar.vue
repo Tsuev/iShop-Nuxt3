@@ -27,7 +27,7 @@
 import CloseIcon from "@/assets/img/icons/close.svg";
 import Login from "~/components/blocks/login.vue";
 import User from "@/components/modules/Header/components/user.vue";
-import { useSidebarStore } from "./store/sidebarStore";
+import { useSidebarStore } from '@/store/sidebarStore";
 import { useAuthorizationStore } from "~/store/authorizationStore";
 import { storeToRefs } from "pinia";
 import { onClickOutside } from "@vueuse/core";
@@ -68,3 +68,4 @@ onClickOutside(sidebar, () => sidebaStore.closeSidebar());
   transition-duration: 0.3s;
 }
 </style>
+../../../store/sidebarStore

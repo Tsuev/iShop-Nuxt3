@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { AuthorizationType, User } from '~/types/AuthorizationTypes'
-import { fetchRegistration, fetchLogin } from '~/sevices/authorizationService'
+import { fetchRegistration, fetchLogin } from '~/services/authorizationService'
 import { AxiosError, isAxiosError } from 'axios'
 import { useModalStore } from '~/components/modules/Modals/store/modalStore'
 

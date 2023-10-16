@@ -87,8 +87,10 @@ import ProductCard from "@/components/modules/ProductCard/ProductCard.vue";
 
 const { $api } = useNuxtApp();
 
-const { data, pending, error, refresh } = await $api("GET", "http://localhost:5000/api/device");
-
+const { data, pending, error, refresh } = await $api(
+  "GET",
+  "http://localhost:5000/api/device"
+);
 </script>
 
 <style lang="scss">

@@ -1,5 +1,5 @@
 import { useAuthorizationStore } from "~/store/authorizationStore"
-import { useSidebarStore } from "~/components/modules/Sidebar/store/sidebarStore";
+import { useSidebarStore } from "~/store/sidebarStore";
 
 const authorizationStore = useAuthorizationStore()
 const sidebarStore = useSidebarStore()

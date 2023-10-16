@@ -1,15 +1,12 @@
 <template>
-  <Header />
+  <AppHeader />
   <div class="default">
     <slot />
   </div>
-  <MobileNav />
+  <AppMobileNav />
 </template>
 
-<script setup lang="ts">
-import Header from "@/components/modules/Header/Header.vue";
-import MobileNav from "~/components/blocks/mobile-nav.vue";
-</script>
+<script setup lang="ts"></script>
 
 <style lang="scss" scoped>
 .default {
