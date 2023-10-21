@@ -9,12 +9,12 @@
         <CloseIcon @click="sidebaStore.closeSidebar" />
       </div>
       <div class="sidebar__content">
-        <User
+        <!-- <User
           v-if="authorizationStore.isAuth"
           :username="user.name"
           :logout-show="true"
-        />
-        <Login v-else />
+        /> -->
+        <BaseLogin />
         <component v-if="dynamicComponent" :is="dynamicComponent" />
         <slot />
       </div>
@@ -25,10 +25,6 @@
 
 <script setup lang="ts">
 import CloseIcon from "@/assets/img/icons/close.svg";
-import Login from "~/components/blocks/login.vue";
-import User from "@/components/modules/Header/components/user.vue";
-import { useSidebarStore } from '@/store/sidebarStore";
-import { useAuthorizationStore } from "~/store/authorizationStore";
 import { storeToRefs } from "pinia";
 import { onClickOutside } from "@vueuse/core";
 
