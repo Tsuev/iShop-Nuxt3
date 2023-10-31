@@ -1,5 +1,5 @@
 <template>
-  <h1>Test title</h1>
+  <NuxtLayout> </NuxtLayout>
 </template>
 
 <script setup lang="ts">
